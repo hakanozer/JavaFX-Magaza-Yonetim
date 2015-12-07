@@ -6,8 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="urunGiris.FXMLUrunlerController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="urunGiris.FXMLUrunlerController">
    <children>
       <TitledPane animated="false" collapsible="false" layoutY="30.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="800.0" text="Ürün Girişi">
         <content>
@@ -34,18 +33,6 @@
             </AnchorPane>
         </content>
       </TitledPane>
-      <TreeTableView layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="800.0">
-        <columns>
-          <TreeTableColumn prefWidth="99.0" text="ÜRÜN ADI" />
-          <TreeTableColumn prefWidth="79.0" text="FİYAT" />
-            <TreeTableColumn prefWidth="47.0" text="BEDEN" />
-            <TreeTableColumn prefWidth="68.0" text="RENK" />
-            <TreeTableColumn prefWidth="115.0" text="SEZON" />
-            <TreeTableColumn prefWidth="175.0" text="AÇIKLAMA" />
-            <TreeTableColumn prefWidth="112.0" text="BARKOD" />
-            <TreeTableColumn minWidth="0.0" prefWidth="104.0" text="TARİH" />
-        </columns>
-      </TreeTableView>
       <Pane layoutY="450.0" prefHeight="138.0" prefWidth="800.0">
          <children>
             <Label layoutX="40.0" layoutY="16.0" text="Ürün Adı" />
@@ -67,5 +54,17 @@
             <Label fx:id="lblResim" layoutX="656.0" layoutY="16.0" prefHeight="109.0" prefWidth="122.0" />
          </children>
       </Pane>
+      <TableView fx:id="tblurunler" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="800.0">
+        <columns>
+          <TableColumn fx:id="tblColumnUrunAdi" prefWidth="148.0" text="ÜRÜN ADI" />
+          <TableColumn fx:id="tblColumnUrunFiyati" prefWidth="78.0" text="FİYAT" />
+            <TableColumn fx:id="tblColumnUrunBeden" prefWidth="49.0" text="BEDEN" />
+            <TableColumn fx:id="tblColumnUrunRenk" prefWidth="74.0" text="RENK" />
+            <TableColumn fx:id="tblColumnUrunSezon" prefWidth="87.0" text="SEZON" />
+            <TableColumn fx:id="tblColumnUrunAciklama" prefWidth="172.0" text="AÇIKLAMA" />
+            <TableColumn fx:id="tblColumnUrunBarkod" prefWidth="86.0" text="BARKOD" />
+            <TableColumn fx:id="tblColumnUrunTarih" prefWidth="105.0" text="TARİH" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

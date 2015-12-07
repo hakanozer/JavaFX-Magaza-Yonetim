@@ -6,6 +6,7 @@
     <class>mudurGiris.Mudurler</class>
     <class>sezonGiris.Sezonlar</class>
     <class>stokGiris.Stoklar</class>
+    <class>urunGiris.Urunler</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=mavi"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
