@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="234.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sezonGiris.SezonGirisController">
+   <children>
+      <Button fx:id="btnGeri" layoutX="72.0" layoutY="172.0" mnemonicParsing="false" onAction="#geri" text="Geri" />
+      <Button fx:id="btnEkle" layoutX="212.0" layoutY="172.0" mnemonicParsing="false" text="Ekle" />
+      <TextField fx:id="txtBaslik" layoutX="72.0" layoutY="36.0" promptText="Başlık" />
+      <TextField fx:id="txtDurum" layoutX="72.0" layoutY="77.0" promptText="Durum" />
+      <TextField fx:id="txtTarih" layoutX="72.0" layoutY="124.0" promptText="Tarih" />
+   </children>
+</AnchorPane>

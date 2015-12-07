@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="230.0" prefWidth="314.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="mudurGiris.MudurGirisController">
+   <children>
+      <TextField fx:id="txtSubeID" layoutX="64.0" layoutY="29.0" promptText="subeID" />
+      <TextField fx:id="txtKullaniciAdi" layoutX="64.0" layoutY="70.0" promptText="UserName" />
+      <PasswordField fx:id="txtPassword" layoutX="64.0" layoutY="112.0" promptText="Password" />
+      <Button fx:id="btnEkle" layoutX="204.0" layoutY="162.0" mnemonicParsing="false" text="Ekle" />
+      <Button fx:id="btnGeri" layoutX="64.0" layoutY="162.0" mnemonicParsing="false" onAction="#geri" text="Geri" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="stokGiris.StokEkleController">
+   <children>
+      <TextField layoutX="23.0" layoutY="28.0" promptText="stokID" />
+      <TextField layoutX="23.0" layoutY="72.0" promptText="urunID" />
+      <TextField layoutX="23.0" layoutY="120.0" promptText="kalanAdet" />
+      <TextField layoutX="222.0" layoutY="28.0" promptText="superID" />
+      <TextField layoutX="222.0" layoutY="72.0" promptText="gelenAdet" />
+      <Button fx:id="btnEkle" layoutX="362.0" layoutY="160.0" mnemonicParsing="false" onAction="#stokEkle" text="Ekle" />
+      <TextField layoutX="222.0" layoutY="120.0" promptText="Tarih" />
+      <Button fx:id="btnGeri" layoutX="23.0" layoutY="160.0" mnemonicParsing="false" onAction="#geri" text="Geri" />
+   </children>
+</AnchorPane>

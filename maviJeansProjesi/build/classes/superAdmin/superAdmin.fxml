@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superAdmin.superAdminController">
+    <children>
+        <Label fx:id="label" alignment="CENTER" layoutX="104.0" layoutY="23.0" minHeight="16" minWidth="69" prefHeight="39.0" prefWidth="183.0" text="Mavi Jeans Projesi">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <TextField fx:id="txtSuperAdminKulAdi" layoutX="110.0" layoutY="62.0" onAction="#textSifreRequest" promptText="UserName" />
+      <PasswordField fx:id="txtSuperAdminSifre" layoutX="110.0" layoutY="105.0" onAction="#textAdminGiris" promptText="Password" />
+      <Button fx:id="btnSuperAdmin" layoutX="240.0" layoutY="155.0" mnemonicParsing="false" onAction="#superAdminGiris" text="Login" />
+    </children>
+</AnchorPane>
