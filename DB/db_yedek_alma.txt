@@ -1,0 +1,6 @@
+C:\Program Files\Microsoft SQL Server\MSSQL11.SQLSERVER\MSSQL\DATA
+
+mavi
+mavi_log
+
+DB yedek alma.
