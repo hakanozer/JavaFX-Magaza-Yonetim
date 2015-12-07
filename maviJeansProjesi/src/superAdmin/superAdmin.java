@@ -11,7 +11,7 @@ public class superAdmin extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/superAdmin/superAdmin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/urunGiris/FXMLUrunler.fxml"));
 
         Scene scene = new Scene(root);
 

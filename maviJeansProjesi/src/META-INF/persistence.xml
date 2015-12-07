@@ -5,7 +5,6 @@
     <class>superAdmin.SuperAdmin_1</class>
     <class>mudurGiris.Mudurler</class>
     <class>sezonGiris.Sezonlar</class>
-    <class>urunGiris.Urunler</class>
     <class>stokGiris.Stoklar</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=mavi"/>

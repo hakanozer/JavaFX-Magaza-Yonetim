@@ -6,30 +6,61 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Anasayfa.AnasayfaController">
-   <children>
-      <Button fx:id="btnMusteriEkle" layoutX="34.0" layoutY="121.0" mnemonicParsing="false" onAction="#musteriEkle" text="Müdür Ekle" />
-      <Button fx:id="btnPdfRaporla" layoutX="158.0" layoutY="65.0" mnemonicParsing="false" onAction="#pdfRaporla" text="Pdf Raporla" />
-      <Button fx:id="btnOturumKapat" layoutX="802.0" layoutY="65.0" mnemonicParsing="false" onAction="#oturumKapat" text="Oturum Kapat" />
-      <Label fx:id="lblAdSoyad" layoutX="767.0" layoutY="14.0" prefHeight="42.0" prefWidth="159.0" />
-      <Button fx:id="btnSezon" layoutX="158.0" layoutY="121.0" mnemonicParsing="false" onAction="#sezonAc" text="Sezon Ekle" />
-      <Button fx:id="btnUrunler" layoutX="282.0" layoutY="121.0" mnemonicParsing="false" onAction="#urunEkle" text="Ürünler" />
-      <Button fx:id="btnStoklar" layoutX="372.0" layoutY="121.0" mnemonicParsing="false" onAction="#stoklar" text="Stoklar" />
-      <TableView fx:id="tableMudur" layoutY="186.0" prefHeight="217.0" prefWidth="940.0">
-        <columns>
-          <TableColumn fx:id="mID" prefWidth="48.0" text="mID" />
-          <TableColumn fx:id="subeID" prefWidth="55.0" text="subeID" />
-            <TableColumn fx:id="mAdi" prefWidth="95.0" text="mAdi" />
-            <TableColumn fx:id="mSoyadi" prefWidth="88.0" text="mSoyadi" />
-            <TableColumn fx:id="mTelefon" prefWidth="89.0" text="mTelefon" />
-            <TableColumn fx:id="mCep" prefWidth="75.0" text="mCep" />
-            <TableColumn fx:id="mMail" prefWidth="75.0" text="mMail" />
-            <TableColumn fx:id="mAdres" prefWidth="75.0" text="mAdres" />
-            <TableColumn fx:id="mKulAdi" prefWidth="90.0" text="mKulAdi" />
-            <TableColumn fx:id="mSifre" prefWidth="94.0" text="mSifre" />
-            <TableColumn fx:id="mTarih" prefWidth="155.0" text="mTarih" />
-        </columns>
-      </TableView>
-      <Button fx:id="btnMudurListele" layoutX="34.0" layoutY="65.0" mnemonicParsing="false" onAction="#mudurTablosu" text="Müdür Listele" />
-   </children>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Anasayfa.AnasayfaController">
+    <children>
+        <Button fx:id="btnMusteriEkle" layoutX="34.0" layoutY="121.0" mnemonicParsing="false" onAction="#musteriEkle" text="Müdür Ekle" />
+        <Button fx:id="btnPdfRaporla" layoutX="158.0" layoutY="65.0" mnemonicParsing="false" onAction="#pdfRaporla" text="Pdf Raporla" />
+        <Button fx:id="btnOturumKapat" layoutX="802.0" layoutY="65.0" mnemonicParsing="false" onAction="#oturumKapat" text="Oturum Kapat" />
+        <Label fx:id="lblAdSoyad" layoutX="767.0" layoutY="14.0" prefHeight="42.0" prefWidth="159.0" />
+        <Button fx:id="btnSezon" layoutX="158.0" layoutY="121.0" mnemonicParsing="false" onAction="#sezonAc" text="Sezon Ekle" />
+        <Button fx:id="btnUrunler" layoutX="282.0" layoutY="121.0" mnemonicParsing="false" onAction="#urunEkle" text="Ürünler" />
+        <Button fx:id="btnStoklar" layoutX="372.0" layoutY="121.0" mnemonicParsing="false" onAction="#stoklar" text="Stoklar" />
+        <TableView fx:id="tableMudur" layoutX="92.0" layoutY="164.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="mID" prefWidth="48.0" text="mID" />
+                <TableColumn fx:id="subeID" prefWidth="55.0" text="subeID" />
+                <TableColumn fx:id="mAdi" prefWidth="95.0" text="mAdi" />
+                <TableColumn fx:id="mSoyadi" prefWidth="88.0" text="mSoyadi" />
+                <TableColumn fx:id="mTelefon" prefWidth="89.0" text="mTelefon" />
+                <TableColumn fx:id="mCep" prefWidth="75.0" text="mCep" />
+                <TableColumn fx:id="mMail" prefWidth="75.0" text="mMail" />
+                <TableColumn fx:id="mAdres" prefWidth="75.0" text="mAdres" />
+                <TableColumn fx:id="mKulAdi" prefWidth="90.0" text="mKulAdi" />
+                <TableColumn fx:id="mSifre" prefWidth="94.0" text="mSifre" />
+                <TableColumn fx:id="mTarih" prefWidth="155.0" text="mTarih" />
+            </columns>
+        </TableView>
+        <Button fx:id="btnMudurListele" layoutX="34.0" layoutY="65.0" mnemonicParsing="false" onAction="#mudurTablosu" text="Müdür Listele" />
+        <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="352.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Satış Yönetimi">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Satışlar" />
+                    </items>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Raporla" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ürün Yönetimi">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Ürünler" />
+                    </items>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Raporla" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Şube Kontrolü">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Beden Yönetimi" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Stok Yönetimi">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                </Menu>
+            
+            </menus>
+        </MenuBar>
+    </children>
 </AnchorPane>
