@@ -24,7 +24,16 @@ public class Urunler {
     private String barkodNo;
     private BigDecimal uFiyat;
     private String uKisaAciklama;
+    private boolean durum;
 
+    public boolean getDurum() {
+        return durum;
+    }
+
+    public void setDurum(boolean durum) {
+        this.durum = durum;
+    }
+   
     public String getRenk() {
         return renk;
     }

@@ -6,9 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="532.0" prefWidth="387.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="SatisEkrani.Odeme">
+<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="361.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SatisEkrani.OdemeController">
    <children>
-      <Label fx:id="lblLogo" layoutX="189.0" layoutY="28.0" prefHeight="82.0" prefWidth="169.0" />
+      <Label fx:id="lblLogo" layoutX="83.0" layoutY="29.0" prefHeight="82.0" prefWidth="234.0" />
+      <Label layoutX="42.0" layoutY="137.0" text="Tarih   :" />
+      <Label layoutX="43.0" layoutY="163.0" text="Saat    :" />
+      <Label layoutX="42.0" layoutY="187.0" text="Fiş No : " />
+      <Label layoutX="91.0" layoutY="137.0" text="2015-06-05" />
+      <Label layoutX="91.0" layoutY="163.0" text="15:32" />
+      <Label layoutX="92.0" layoutY="187.0" text="1256" />
+      <ListView focusTraversable="false" layoutX="42.0" layoutY="213.0" prefHeight="137.0" prefWidth="275.0" />
+      <Label layoutX="43.0" layoutY="351.0" prefHeight="17.0" prefWidth="275.0" text="---------------------------------------------------------" />
+      <Label layoutX="42.0" layoutY="385.0" prefHeight="17.0" prefWidth="275.0" text="---------------------------------------------------------" />
+      <Label layoutX="43.0" layoutY="368.0" prefHeight="17.0" prefWidth="275.0" text="TOPLAM          :" />
+      <Label layoutX="43.0" layoutY="424.0" prefHeight="17.0" prefWidth="275.0" text="ÖDEME TİPİ     :" />
+      <Label layoutX="43.0" layoutY="454.0" prefHeight="17.0" prefWidth="275.0" text="KASİYER NO    : " />
+      <Label layoutX="43.0" layoutY="478.0" prefHeight="17.0" prefWidth="275.0" text="KASİYER İSİM  : " />
+      <Button layoutX="196.0" layoutY="516.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="ÖDEMEYİ ONAYLA" />
+      <Button layoutX="196.0" layoutY="552.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="ÖDEMEYİ İPTAL ET" />
+      <Label fx:id="lblReferans" layoutX="42.0" layoutY="402.0" prefHeight="17.0" prefWidth="275.0" text="REFERANS NO :" />
    </children>
 </AnchorPane>

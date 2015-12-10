@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="238.0" prefWidth="361.0" style="-fx-border-color: #2f9eda;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="SatisEkrani.SatisGirisController">
+   <children>
+      <Label alignment="CENTER" layoutX="32.0" layoutY="32.0" prefHeight="21.0" prefWidth="297.0" text="KASA GİRİŞİ" textAlignment="CENTER" textFill="#1d6c97">
+         <font>
+            <Font name="Arial Unicode MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtKulAdi" layoutX="46.0" layoutY="83.0" prefHeight="25.0" prefWidth="267.0" promptText="Personel Kullanıcı Adı Giriniz..." />
+      <TextField fx:id="txtSifre" layoutX="47.0" layoutY="119.0" onAction="#giris" prefHeight="25.0" prefWidth="267.0" promptText="Personel Şifre Giriniz..." />
+      <Button fx:id="btnClick" layoutX="227.0" layoutY="163.0" mnemonicParsing="false" onAction="#giris" prefHeight="25.0" prefWidth="86.0" text="GİRİŞ" />
+   </children>
+</AnchorPane>
