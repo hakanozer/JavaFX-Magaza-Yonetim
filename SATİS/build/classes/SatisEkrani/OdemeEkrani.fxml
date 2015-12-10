@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="532.0" prefWidth="387.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="SatisEkrani.Odeme">
+   <children>
+      <Label fx:id="lblLogo" layoutX="189.0" layoutY="28.0" prefHeight="82.0" prefWidth="169.0" />
+   </children>
+</AnchorPane>

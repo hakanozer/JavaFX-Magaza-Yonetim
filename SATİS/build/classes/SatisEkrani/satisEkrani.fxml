@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1357.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SatisEkrani.SatisController">
+    <children>
+      <Pane layoutX="14.0" layoutY="15.0">
+       
+      </Pane>
+      <Label fx:id="lblFiyat" alignment="TOP_RIGHT" layoutX="14.0" layoutY="15.0" prefHeight="58.0" prefWidth="297.0" style="-fx-background-color: #142800;" textFill="#36ff0e">
+         <font>
+            <Font name="Agency FB Bold" size="47.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnIptal" layoutX="215.0" layoutY="86.0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="94.0" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="btnIade" layoutX="14.0" layoutY="86.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="94.0" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+      <Label fx:id="lblBarkod" layoutX="14.0" layoutY="154.0" prefHeight="21.0" prefWidth="188.0" text="BARKOD KODU:">
+         <font>
+            <Font name="Arial Unicode MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtBarkod" layoutX="67.0" layoutY="206.0" onAction="#BarkodBul" prefHeight="25.0" prefWidth="213.0">
+         <cursor>
+            
+         </cursor></TextField>
+      <Button layoutX="280.0" layoutY="206.0" mnemonicParsing="false" onAction="#BarkodBul" prefHeight="25.0" prefWidth="29.0" text="..." />
+      <Label fx:id="lblTl" layoutX="274.0" layoutY="26.0" prefHeight="37.0" prefWidth="28.0" />
+      <Button fx:id="btnBeklet" layoutX="116.0" layoutY="86.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="94.0" />
+      <Label fx:id="lblAdet" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" layoutX="341.0" layoutY="18.0" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #142800;" textAlignment="RIGHT" textFill="#36ff0e">
+         <font>
+            <Font name="Agency FB Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="442.0" layoutY="15.0" style="-fx-background-color: #ffffff;" text="*">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTutar" alignment="BASELINE_RIGHT" layoutX="459.0" layoutY="18.0" prefHeight="28.0" prefWidth="133.0" style="-fx-background-color: #142800;" textFill="#36ff0e">
+         <font>
+            <Font name="Agency FB Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUrun" alignment="TOP_LEFT" layoutX="603.0" layoutY="18.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="726.0" style="-fx-background-color: #142800;" textFill="#36ff0e">
+         <font>
+            <Font name="Agency FB Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="s1" layoutX="341.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" text="1">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s2" layoutX="382.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" text="2">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s3" layoutX="424.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" text="3">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s4" layoutX="464.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="29.0" text="4">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s5" layoutX="502.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" text="5">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s0" layoutX="705.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" text="0">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s9" layoutX="667.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="29.0" text="9">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s8" layoutX="627.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" text="8">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s7" layoutX="585.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" text="7">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="s6" layoutX="544.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" text="6">
+         <font>
+            <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSil" layoutX="751.0" layoutY="55.0" mnemonicParsing="false" onAction="#labelAdetYaz" prefHeight="37.0" prefWidth="35.0" />
+      <TextField fx:id="txtAlinanPara" alignment="TOP_RIGHT" layoutX="14.0" layoutY="310.0" prefHeight="34.0" prefWidth="160.0" promptText="0.00" text="0.00">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lblAlinanPara" layoutX="14.0" layoutY="280.0" prefHeight="21.0" prefWidth="160.0" text="ALINAN PARA:">
+         <font>
+            <Font name="Arial Unicode MS" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblParaUstu" layoutX="195.0" layoutY="282.0" prefHeight="18.0" prefWidth="112.0" text="PARA ÜSTÜ:">
+         <font>
+            <Font name="Arial Unicode MS" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtParaUstu" alignment="TOP_RIGHT" disable="true" editable="false" layoutX="195.0" layoutY="310.0" prefHeight="34.0" prefWidth="112.0" promptText="0,00" text="0,00">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnKart" layoutX="422.0" layoutY="109.0" mnemonicParsing="false" onAction="#OdemeEkraniStart" prefHeight="58.0" prefWidth="85.0" />
+      <Button fx:id="btnNakit" layoutX="519.0" layoutY="109.0" mnemonicParsing="false" onAction="#OdemeEkraniStart" prefHeight="58.0" prefWidth="85.0" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="341.0" layoutY="109.0" prefHeight="58.0" prefWidth="76.0" text="ÖDEME ŞEKLİ:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn1Krs" layoutX="14.0" layoutY="352.0" mnemonicParsing="false" onAction="#totalPara" text="1 KRŞ" />
+      <Button fx:id="btn5Krs" layoutX="67.0" layoutY="352.0" mnemonicParsing="false" onAction="#totalPara" text="5 KRŞ" />
+      <Button fx:id="btn10Krs" layoutX="121.0" layoutY="352.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="53.0" text="10 KRŞ" />
+      <Button fx:id="btn1Tl" layoutX="14.0" layoutY="385.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="47.0" text="1 TL" />
+      <Button fx:id="btn5Tl" layoutX="67.0" layoutY="385.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="47.0" text="5 TL" />
+      <Button fx:id="btn10Tl" layoutX="122.0" layoutY="385.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="53.0" text="10 TL" />
+      <Button fx:id="btn25Krs" layoutX="195.0" layoutY="352.0" mnemonicParsing="false" onAction="#totalPara" text="25 KRŞ" />
+      <Button fx:id="btn50Krs" layoutX="254.0" layoutY="352.0" mnemonicParsing="false" onAction="#totalPara" text="50 KRŞ" />
+      <Button fx:id="btn20Tl" layoutX="195.0" layoutY="385.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="53.0" text="20 TL" />
+      <Button fx:id="btn50Tl" layoutX="255.0" layoutY="385.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="53.0" text="50 TL" />
+      <Button fx:id="btn200Tl" layoutX="256.0" layoutY="417.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="53.0" text="200 TL" />
+      <Button fx:id="btn100Tl" layoutX="196.0" layoutY="417.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="53.0" text="100 TL" />
+      <Button fx:id="btnC" layoutX="14.0" layoutY="417.0" mnemonicParsing="false" onAction="#totalPara" prefHeight="25.0" prefWidth="47.0" text="0,00" />
+      <TableView fx:id="table" layoutX="342.0" layoutY="191.0" prefHeight="496.0" prefWidth="990.0">
+        <columns>
+            <TableColumn fx:id="adet" prefWidth="75.0" text="Adet" />
+          <TableColumn fx:id="uAdi" prefWidth="75.0" text="Ürün Adı" />
+          <TableColumn fx:id="uKisaAciklama" prefWidth="208.33331298828125" text="Açıklama" />
+            <TableColumn fx:id="uFiyat" prefWidth="74.66668701171875" text="Fiyat" />
+            <TableColumn fx:id="sezon" prefWidth="201.66668701171875" text="Sezon" />
+            <TableColumn fx:id="beden" prefWidth="76.0" text="Beden" />
+            <TableColumn fx:id="renk" prefWidth="98.0" text="Renk" />
+            <TableColumn fx:id="kalanAdet" prefWidth="67.0" text="Stok" />
+            <TableColumn fx:id="uTarih" prefWidth="118.666748046875" text="Tarih" />
+        </columns>
+      </TableView>
+    </children>
+</AnchorPane>
