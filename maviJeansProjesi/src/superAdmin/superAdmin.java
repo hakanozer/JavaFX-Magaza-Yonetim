@@ -17,11 +17,17 @@ public class superAdmin extends Application {
 
         stage.setScene(scene);
         stage.setTitle("Super Admin Girişi");
+        stage.setResizable(false);
         stage.show();
     }
 
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    @Override
+    public void stop(){
+       System.exit(1);
     }
 
 }

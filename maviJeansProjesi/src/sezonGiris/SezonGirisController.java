@@ -1,5 +1,6 @@
 package sezonGiris;
 
+import urunGiris.Sezonlar;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

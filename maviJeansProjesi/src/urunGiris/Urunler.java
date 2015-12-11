@@ -1,8 +1,8 @@
-/**
- *
- * @author Erdinç Ocak 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-
 package urunGiris;
 
 import java.io.Serializable;
@@ -21,7 +21,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
+/**
+ *
+ * @author javaSabah
+ */
 @Entity
 @Table(name = "urunler")
 @XmlRootElement
@@ -186,5 +189,5 @@ public class Urunler implements Serializable {
     public String toString() {
         return "urunGiris.Urunler[ urunID=" + urunID + " ]";
     }
-
+    
 }

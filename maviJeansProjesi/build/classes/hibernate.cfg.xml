@@ -3,13 +3,13 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=mavi</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost\SQLLL;databaseName=mavi</property>
     <property name="hibernate.connection.username">sa</property>
-    <property name="hibernate.connection.password">12345</property>
+    <property name="hibernate.connection.password">java123</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="superAdmin.SuperAdmin_1"/>
     <mapping class="urunGiris.Urunler"/>
-    <mapping class="stokGiris.Stoklar"/>
-    <mapping class="mudurGiris.Mudurler"/>
+    <mapping class="urunGiris.Renkler"/>
+    <mapping class="urunGiris.Bedenler"/>
+    <mapping class="urunGiris.Sezonlar"/>
   </session-factory>
 </hibernate-configuration>

@@ -15,55 +15,56 @@
                   <Label fx:id="lblUrunSezon" layoutX="32.0" layoutY="15.0" text="Sezon" />
                   <Label fx:id="lblUrunBeden" layoutX="32.0" layoutY="45.0" text="Beden" />
                   <Label fx:id="lblUrunRenk" layoutX="32.0" layoutY="75.0" text="Renk" />
-                  <Label fx:id="lblUrunAdi" layoutX="380.0" layoutY="10.0" text="Ürün Adı" />
-                  <Label fx:id="lblUrunAciklama" layoutX="380.0" layoutY="35.0" text="Açıklama" />
-                  <Label fx:id="lblurunFiyat" layoutX="380.0" layoutY="60.0" text="Fiyat" />
-                  <Label fx:id="lblUrunTarih" layoutX="380.0" layoutY="85.0" text="Tarih" />
-                  <TextField layoutX="436.0" layoutY="9.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" />
-                  <TextField layoutX="436.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" />
-                  <TextField layoutX="436.0" layoutY="60.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" />
-                  <TextField layoutX="436.0" layoutY="85.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" />
+                  <Label fx:id="lblUrunAdi" layoutX="350.0" layoutY="10.0" text="Ürün Adı" />
+                  <Label fx:id="lblUrunAciklama" layoutX="350.0" layoutY="35.0" text="Açıklama" />
+                  <Label fx:id="lblurunFiyat" layoutX="350.0" layoutY="60.0" text="Fiyat" />
+                  <TextField fx:id="txtUrunAdi" layoutX="406.0" layoutY="9.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" />
+                  <TextField fx:id="txtUrunAciklama" layoutX="406.0" layoutY="35.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" />
+                  <TextField fx:id="txtUrunFiyat" layoutX="406.0" layoutY="60.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" />
                   <ComboBox fx:id="cmbSezon" layoutX="74.0" layoutY="15.0" prefWidth="150.0" />
                   <ComboBox fx:id="cmbBeden" layoutX="74.0" layoutY="45.0" prefWidth="150.0" />
                   <ComboBox fx:id="cmbRenk" layoutX="74.0" layoutY="75.0" prefWidth="150.0" />
                   <Label fx:id="lblUrunRenk1" layoutX="32.0" layoutY="105.0" text="Barkod" />
                   <TextField fx:id="txtUrunBarkod" layoutX="74.0" layoutY="104.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" />
-                  <Button fx:id="btnResimSec" layoutX="645.0" layoutY="23.0" mnemonicParsing="false" onAction="#resimSec" prefHeight="59.0" prefWidth="122.0" text="Resim Yükle" />
+                  <Button fx:id="btnResimSec" layoutX="434.0" layoutY="88.0" mnemonicParsing="false" onAction="#resimSec" prefHeight="24.0" prefWidth="122.0" text="Resim Yükle" />
+                  <Label fx:id="lblResim" layoutX="573.0" layoutY="17.0" prefHeight="96.0" prefWidth="122.0" />
+                  <Button fx:id="btnUrunuEkle" layoutX="713.0" layoutY="17.0" mnemonicParsing="false" onAction="#urunEkle" prefHeight="96.0" prefWidth="61.0" text="ÜRÜNÜ EKLE" textAlignment="CENTER" wrapText="true" />
                </children>
             </AnchorPane>
         </content>
       </TitledPane>
       <Pane layoutY="450.0" prefHeight="138.0" prefWidth="800.0">
          <children>
-            <Label layoutX="40.0" layoutY="16.0" text="Ürün Adı" />
-            <Label layoutX="160.0" layoutY="16.0" text="Beden" />
-            <Label layoutX="220.0" layoutY="16.0" text="Renk" />
-            <Label layoutX="100.0" layoutY="16.0" text="Fiyat" />
-            <Label layoutX="280.0" layoutY="16.0" text="Sezon" />
-            <Label layoutX="340.0" layoutY="16.0" text="Açıklama" />
-            <Label layoutX="460.0" layoutY="16.0" text="Barkod" />
-            <Label layoutX="400.0" layoutY="16.0" text="Tarih" />
-            <Label fx:id="lblUrunAdi2" layoutX="40.0" layoutY="45.0" text="Ürün Adı" />
-            <Label fx:id="lblUrunFiyat2" layoutX="100.0" layoutY="45.0" text="Fiyat" />
-            <Label fx:id="lblUrunBeden2" layoutX="160.0" layoutY="45.0" text="Beden" />
-            <Label fx:id="lblUrunRenk2" layoutX="220.0" layoutY="45.0" text="Renk" />
-            <Label fx:id="lblUrunSezon2" layoutX="280.0" layoutY="45.0" text="Sezon" />
-            <Label fx:id="lblUrunAciklama2" layoutX="340.0" layoutY="45.0" text="Açıklama" />
-            <Label fx:id="lblUrunTarih2" layoutX="400.0" layoutY="45.0" text="Tarih" />
-            <Label fx:id="lblUrunBarkod2" layoutX="460.0" layoutY="45.0" text="Barkod" />
-            <Label fx:id="lblResim" layoutX="656.0" layoutY="16.0" prefHeight="109.0" prefWidth="122.0" />
+            <Label layoutX="40.0" layoutY="15.0" style="-fx-font-weight: bold;" text="Ürün Adı" />
+            <Label layoutX="160.0" layoutY="15.0" style="-fx-font-weight: bold;" text="Beden" />
+            <Label layoutX="160.0" layoutY="65.0" style="-fx-font-weight: bold;" text="Renk" />
+            <Label layoutX="40.0" layoutY="65.0" style="-fx-font-weight: BOLD;" text="Fiyat" />
+            <Label layoutX="280.0" layoutY="15.0" style="-fx-font-weight: bold;" text="Sezon" />
+            <Label layoutX="280.0" layoutY="65.0" style="-fx-font-weight: bold;" text="Açıklama" />
+            <Label layoutX="400.0" layoutY="65.0" style="-fx-font-weight: bold;" text="Barkod" />
+            <Label layoutX="400.0" layoutY="15.0" style="-fx-font-weight: bold;" text="Tarih" />
+            <Label fx:id="lblUrunAdi2" layoutX="40.0" layoutY="35.0" />
+            <Label fx:id="lblUrunFiyat2" layoutX="40.0" layoutY="85.0" />
+            <Label fx:id="lblUrunBeden2" layoutX="160.0" layoutY="35.0" />
+            <Label fx:id="lblUrunRenk2" layoutX="160.0" layoutY="85.0" />
+            <Label fx:id="lblUrunSezon2" layoutX="280.0" layoutY="35.0" />
+            <Label fx:id="lblUrunAciklama2" layoutX="280.0" layoutY="85.0" />
+            <Label fx:id="lblUrunTarih2" layoutX="400.0" layoutY="35.0" />
+            <Label fx:id="lblUrunBarkod2" layoutX="400.0" layoutY="85.0" />
+            <Label fx:id="lblResim2" layoutX="644.0" layoutY="14.0" prefHeight="96.0" prefWidth="122.0" />
          </children>
       </Pane>
       <TableView fx:id="tblurunler" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="800.0">
         <columns>
-          <TableColumn fx:id="tblColumnUrunAdi" prefWidth="148.0" text="ÜRÜN ADI" />
-          <TableColumn fx:id="tblColumnUrunFiyati" prefWidth="78.0" text="FİYAT" />
-            <TableColumn fx:id="tblColumnUrunBeden" prefWidth="49.0" text="BEDEN" />
-            <TableColumn fx:id="tblColumnUrunRenk" prefWidth="74.0" text="RENK" />
-            <TableColumn fx:id="tblColumnUrunSezon" prefWidth="87.0" text="SEZON" />
-            <TableColumn fx:id="tblColumnUrunAciklama" prefWidth="172.0" text="AÇIKLAMA" />
-            <TableColumn fx:id="tblColumnUrunBarkod" prefWidth="86.0" text="BARKOD" />
-            <TableColumn fx:id="tblColumnUrunTarih" prefWidth="105.0" text="TARİH" />
+            <TableColumn fx:id="tblColumnUrunId" prefWidth="76.0" text="ÜRÜN ID" />
+          <TableColumn fx:id="tblColumnUrunAdi" minWidth="0.0" prefWidth="120.0" text="ÜRÜN ADI" />
+          <TableColumn fx:id="tblColumnUrunFiyati" minWidth="0.0" prefWidth="98.0" text="FİYAT" />
+            <TableColumn fx:id="tblColumnUrunBeden" prefWidth="69.0" text="BEDEN ID" />
+            <TableColumn fx:id="tblColumnUrunRenk" prefWidth="53.0" text="RENK ID" />
+            <TableColumn fx:id="tblColumnUrunSezon" prefWidth="59.0" text="SEZON ID" />
+            <TableColumn fx:id="tblColumnUrunAciklama" prefWidth="145.0" text="AÇIKLAMA" />
+            <TableColumn fx:id="tblColumnUrunBarkod" prefWidth="81.0" text="BARKOD" />
+            <TableColumn fx:id="tblColumnUrunTarih" prefWidth="98.0" text="TARİH" />
         </columns>
       </TableView>
    </children>
