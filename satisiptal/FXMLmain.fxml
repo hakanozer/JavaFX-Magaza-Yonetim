@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" rotate="-0.0" style="-fx-border-color: #072a75;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="satisiptal.FXMLmainController">
+      <children>
+      <TableView fx:id="faturaUrunleri" layoutX="8.0" layoutY="306.0" prefHeight="289.0" prefWidth="789.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="305.0">
+        <columns>
+          <TableColumn fx:id="urunSira" prefWidth="30.666667938232422" text="Sıra" />
+            <TableColumn fx:id="urunID" text="Ürün No" />
+            <TableColumn fx:id="urunadi" prefWidth="107.0" text="Ürun Adı" />
+            <TableColumn fx:id="sezon" prefWidth="84.0" text="Sezon" />
+            <TableColumn fx:id="aciklama" prefWidth="149.0" text="Açıklama" />
+            <TableColumn fx:id="beden" prefWidth="42.0" text="Beden" />
+            <TableColumn fx:id="renk" prefWidth="64.0" text="Renk" />
+            <TableColumn fx:id="birimFiyati" minWidth="3.0" prefWidth="71.0" text="Birim Fiyatı" />
+            <TableColumn fx:id="adet" prefWidth="33.0" text="Adet" />
+            <TableColumn fx:id="uTutar" prefWidth="125.0" text="Tutar" />
+        </columns>
+      </TableView>
+      <Label layoutX="29.0" layoutY="25.0" prefHeight="21.0" prefWidth="163.0" text="FATURA NUMARASI:">
+         <font>
+            <Font name="Arial Unicode MS" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFaturaNo" layoutX="30.0" layoutY="52.0" onAction="#faturaUrunleriniGetir" prefHeight="45.0" prefWidth="250.0" style="border: #ffb799;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="12.0" layoutY="275.0" text="FATURAYA AİT ÜRÜNLER:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Pane layoutX="472.0" layoutY="13.0" prefHeight="128.0" prefWidth="314.0" style="-fx-background-color: #DDFEFC; -fx-border-color: #072a75;">
+         <children>
+            <Label layoutX="14.0" layoutY="7.0" text="Kasiyer Bilgileri" textFill="#072a75">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <GridPane layoutY="36.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Kullanici Adı: ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="Soyadi: " GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="Adı: " GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pKullaniciAdi" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pAdi" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pSoyadi" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <Line endX="100.0" layoutX="113.0" layoutY="37.0" startX="-100.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="472.0" layoutY="151.0" prefHeight="128.0" prefWidth="314.0" style="-fx-background-color: #DDFEFC; -fx-border-color: #072a75;">
+         <children>
+            <Label layoutX="14.0" layoutY="7.0" text="Fatura Bilgileri" textFill="#072a75">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <GridPane layoutY="36.0" prefHeight="90.0" prefWidth="295.0">
+               <children>
+                  <Label text="Tutar: ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="Tarih: " GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="Ödeme Tipi: " GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="fTutar" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="oTipi" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="fTarihi" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="102.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="193.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Line endX="100.0" layoutX="113.0" layoutY="37.0" startX="-100.0" />
+         </children>
+      </Pane>
+      <Button fx:id="uruniade" layoutX="157.0" layoutY="141.0" mnemonicParsing="false" onAction="#urunIadeEt" prefHeight="76.0" prefWidth="123.0" text="ÜRÜN İADE" />
+   </children>
+</AnchorPane>
