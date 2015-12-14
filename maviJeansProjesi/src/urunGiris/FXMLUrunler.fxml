@@ -67,5 +67,6 @@
             <TableColumn fx:id="tblColumnUrunTarih" prefWidth="98.0" text="TARİH" />
         </columns>
       </TableView>
+      <Button fx:id="btnBackup" layoutX="532.0" layoutY="2.0" mnemonicParsing="false" onAction="#backup" text="Button" />
    </children>
 </AnchorPane>

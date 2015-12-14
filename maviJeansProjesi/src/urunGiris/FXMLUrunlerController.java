@@ -10,6 +10,12 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -144,6 +150,9 @@ public class FXMLUrunlerController implements Initializable {
     private Button btnUrunuEkle;
 
     @FXML
+    private Button btnBackup;
+
+    @FXML
     private Label lblResim2;
 
     @FXML
@@ -157,17 +166,6 @@ public class FXMLUrunlerController implements Initializable {
     ObservableList<Urunler> kliste = FXCollections.observableArrayList();
     Session session;
     HashMap idResim = new HashMap();
-
-    protected MaskFormatter createFormatter(String s) {
-        MaskFormatter formatter = null;
-        try {
-            formatter = new MaskFormatter(s);
-        } catch (java.text.ParseException exc) {
-            System.err.println("formatter is bad: " + exc.getMessage());
-            System.exit(-1);
-        }
-        return formatter;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -196,7 +194,6 @@ public class FXMLUrunlerController implements Initializable {
                     } else {
                         txtUrunFiyat.setText(d + "." + d2);
                     }
-                    
 
                 }
 
@@ -443,6 +440,45 @@ public class FXMLUrunlerController implements Initializable {
             session.close();
         }
 
+    }
+
+    public void backup() {
+
+        LocalDateTime now = LocalDateTime.now();
+        int year = now.getYear();
+        int month = now.getMonthValue();
+        int day = now.getDayOfMonth();
+        int hour = now.getHour();
+        int minute = now.getMinute();
+        int second = now.getSecond();
+
+        String date = day + "-" + month + "-" + year + "_" + hour + minute + second;
+
+        String userName = "sa";
+        String password = "12345";
+
+        String url = "jdbc:sqlserver://ERDEL-PC\\SQLLL;databaseName=";
+        String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+
+        Connection conn = null;
+        Statement st = null;
+
+        try {
+            if (conn == null) {
+                
+                Class.forName(driver);
+                conn = DriverManager.getConnection(url + "mavi;", userName, password);
+                st = conn.createStatement();
+                String strSelect = "BACKUP DATABASE mavi TO DISK = 'E:\\JAVA\\" + date + "__mavi.bak'";
+                st.execute(strSelect);
+                System.out.println("Backup alındı.");
+
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+
+            System.err.println("Bağlantı Hatası : " + e);
+
+        }
     }
 
 }
