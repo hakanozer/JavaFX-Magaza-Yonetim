@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="subelergiris.SubelerGirisController">
+   <children>
+      <TableView fx:id="tv_subelerGiris" layoutX="10.0" layoutY="107.0" prefHeight="432.0" prefWidth="776.0">
+         <columns>
+            <TableColumn fx:id="cl_subeID" prefWidth="50.0" text="Şube ID" />
+            <TableColumn fx:id="cl_baslik" prefWidth="115.0" text="Başlık" />
+            <TableColumn fx:id="cl_superID" prefWidth="60.0" text="Super ID" />
+            <TableColumn fx:id="cl_telefon" minWidth="0.0" prefWidth="127.0" text="Telefon" />
+            <TableColumn fx:id="cl_mail" prefWidth="107.0" text="Mail" />
+            <TableColumn fx:id="cl_adres" prefWidth="181.0" text="Adres" />
+            <TableColumn fx:id="cl_tarih" prefWidth="135.0" text="Tarih" />
+         </columns>
+      </TableView>
+      <Button fx:id="bt_subeEkle" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#ekleBasildi" text="Ekle" />
+      <Button fx:id="bt_subeDuzenle" layoutX="106.0" layoutY="14.0" mnemonicParsing="false" onAction="#duzenleBasildi" text="Düzenle" />
+      <Button fx:id="bt_subeSil" layoutX="199.0" layoutY="14.0" mnemonicParsing="false" onAction="#silBasildi" text="Sil" />
+      <Button layoutX="724.0" layoutY="14.0" mnemonicParsing="false" onAction="#cikis" text="Çıkış" />
+      <Button layoutX="600.0" layoutY="14.0" mnemonicParsing="false" onAction="#printIt" text="Yazdır" />
+   </children>
+</AnchorPane>

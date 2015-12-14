@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="subelergiris.YeniSubeController">
+   <children>
+      <TextField fx:id="tf_baslik" layoutX="33.0" layoutY="68.0" prefHeight="25.0" prefWidth="227.0" promptText="Başlık" onKeyReleased="#icerikKontrol"  />
+      <DatePicker fx:id="dp_tarih" layoutX="33.0" layoutY="231.0" prefHeight="25.0" prefWidth="227.0" promptText="Tarih" />
+      <TextField fx:id="tf_mail" layoutX="33.0" layoutY="174.0" onKeyReleased="#mailKontrol" prefHeight="25.0" prefWidth="227.0" promptText="Mail" />
+      <TextArea fx:id="ta_adres" layoutX="294.0" layoutY="68.0" prefHeight="188.0" prefWidth="463.0" promptText="Adres" onKeyReleased="#icerikKontrol" />
+      <TextField fx:id="tf_telefon" layoutX="33.0" layoutY="124.0" prefHeight="25.0" prefWidth="227.0" promptText="Telefon" onKeyReleased="#icerikKontrol"/>
+            <Button fx:id="bt_vazgec" layoutX="639.0" layoutY="285.0" mnemonicParsing="false" onAction="#vazgec" text="Çıkış" />
+      <Button fx:id="bt_subeEkle" layoutX="705.0" layoutY="285.0" mnemonicParsing="false" onAction="#ekle" prefHeight="25.0" prefWidth="54.0" text="Ekle" />
+      
+   </children>
+</AnchorPane>
