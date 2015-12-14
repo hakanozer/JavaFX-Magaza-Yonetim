@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="subelergiris.SubeDuzenleController">
+   <children>
+       <Button fx:id="bt_deneme" layoutX="364.0" layoutY="300.0" mnemonicParsing="false" text="Deneme" onAction="#deneme"  />
+      <Button fx:id="bt_duzVazgec" layoutX="464.0" layoutY="300.0" mnemonicParsing="false" text="Vazgeç" onAction="#vazgecBasildi"  />
+      <Button fx:id="bt_duzSubeEkle" layoutX="565.0" layoutY="300.0" mnemonicParsing="false" onAction="#kaydetBasildi" text="Kaydet" />
+      <TextArea fx:id="ta_duzAdres" layoutX="400.0" layoutY="36.0" prefHeight="200.0" prefWidth="345.0" onKeyReleased="#kontrol"  />
+      <TextField fx:id="tf_duzBaslik" layoutX="142.0" layoutY="36.0" prefHeight="25.0" prefWidth="216.0" onKeyReleased="#kontrol"/>
+      <TextField fx:id="tf_duzTelefon" layoutX="142.0" layoutY="96.0" prefHeight="25.0" prefWidth="216.0" onKeyReleased="#kontrol"/>
+      <TextField fx:id="tf_duzMail" layoutX="142.0" layoutY="151.0" prefHeight="25.0" prefWidth="216.0" onKeyReleased="#mailKontrol"  />
+      <DatePicker fx:id="dp_duzTarih" layoutX="142.0" layoutY="211.0" prefHeight="25.0" prefWidth="216.0" />
+   </children>
+</AnchorPane>
