@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
@@ -16,18 +17,24 @@ import javafx.stage.Stage;
  * @author Samsung
  */
 public class SatisEkrani extends Application {
-    
+   
     @Override
     public void start(Stage stage) throws Exception {
+
         Parent root = FXMLLoader.load(getClass().getResource("SatisGiris.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
+        String css = SatisEkrani.class.getResource("CSS.css").toExternalForm();
+
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
+
         stage.show();
-        
+
     }
 
+    
     /**
      * @param args the command line arguments
      */

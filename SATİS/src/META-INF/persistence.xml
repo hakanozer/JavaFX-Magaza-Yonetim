@@ -2,7 +2,11 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="maviPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>SatisEkrani.Personel</class>
+    <class>SatisEkrani.Urunler_1</class>
+    <class>Entities.Satis</class>
+    <class>Entities.Personel</class>
+    <class>Entities.Sepet</class>
+    <class>Entities.Urunler</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://WISSENSC104-10\SQLEXPRESS:1433;databaseName=mavi"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>

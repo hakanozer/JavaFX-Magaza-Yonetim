@@ -1,5 +1,9 @@
 package SatisEkrani;
 
+import Entities.UrunProperty;
+import Entities.Personel;
+import Entities.Sepet;
+import Entities.Urunler;
 import java.io.File;
 import java.math.BigDecimal;
 import java.net.URL;
@@ -7,11 +11,17 @@ import java.rmi.server.UID;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,9 +31,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -31,6 +42,10 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javax.swing.JOptionPane;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 public class SatisController implements Initializable {
 
@@ -71,31 +86,23 @@ public class SatisController implements Initializable {
     @FXML
     private TextField txtParaUstu;
     @FXML
+    private Button btnUrunSil;
+    @FXML
     private TableView table;
     @FXML
-    private TableColumn<Urunler, String> uAdi;
+    private TableColumn<UrunProperty, String> uAdi;
     @FXML
-    private TableColumn<Urunler, String> uKisaAciklama;
+    private TableColumn<UrunProperty, String> uKisaAciklama;
     @FXML
-    private TableColumn<Urunler, BigDecimal> uFiyat;
+    private TableColumn<UrunProperty, BigDecimal> uFiyat;
     @FXML
-    private TableColumn<Urunler, String> sezon;
+    private TableColumn<UrunProperty, String> sezon;
     @FXML
-    private TableColumn<Urunler, String> beden;
+    private TableColumn<UrunProperty, String> beden;
     @FXML
-    private TableColumn<Urunler, String> renk;
+    private TableColumn<UrunProperty, String> renk;
     @FXML
-    private TableColumn<Urunler, String> uTarih;
-    @FXML
-    private TableColumn<Urunler, Boolean> Terzi;
-    @FXML
-    private TableColumn<Urunler, Integer> adet;
-    ObservableList<Urunler> kliste = FXCollections.observableArrayList();
-    ArrayList<Double> para = new ArrayList<>();
-    ArrayList<String> barkod = new ArrayList<>();
-    DB db = new DB();
-
-    private Object stage;
+    private TableColumn<UrunProperty, Integer> adet;
     @FXML
     private Button btn1Krs;
     @FXML
@@ -121,31 +128,22 @@ public class SatisController implements Initializable {
     @FXML
     private Button btn100Tl;
     @FXML
-    private Button btnC;
-    @FXML
-    private Button s1;
-    @FXML
-    private Button s2;
-    @FXML
-    private Button s3;
-    @FXML
-    private Button s4;
-    @FXML
-    private Button s5;
-    @FXML
-    private Button s0;
-    @FXML
-    private Button s9;
-    @FXML
-    private Button s8;
-    @FXML
-    private Button s7;
-    @FXML
-    private Button s6;
-      @FXML
     private Label lblKasa;
     @FXML
     private Personel per;
+    @FXML
+    private Button btnOk;
+    private Object stage;
+
+    ObservableList<UrunProperty> kliste = FXCollections.observableArrayList();
+    ArrayList<Double> para = new ArrayList<>();
+    ArrayList<String> barkod = new ArrayList<>();
+    DB db = new DB();
+    SessionFactory sf;
+    Session sesi;
+    Transaction tr;
+    int i = 1;
+    UrunProperty ur;
 
     public Personel getPer() {
         return per;
@@ -153,21 +151,21 @@ public class SatisController implements Initializable {
 
     public void setPer(Personel per) {
         this.per = per;
-        lblKasa.setText(per.getPAdi()+" "+per.getPSoyadi());
-        
-     
-                
+        lblKasa.setText(per.getPAdi().toUpperCase() + " " + per.getPSoyadi().toUpperCase());
     }
-    
-    
+
     @FXML
     private void BarkodBul() {
+
         String number = txtBarkod.getText();
+
         if (!barkodKntrl(number).isEmpty()) {
 
+            SoundClipTest();
             Property(number);
             TutarHesapla();
-            SoundClipTest();
+            ekle();
+            txtBarkod.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Barkod Numarası Bulunmamaktadır!", "HATA!", JOptionPane.WARNING_MESSAGE);
             txtBarkod.setText("");
@@ -196,13 +194,14 @@ public class SatisController implements Initializable {
         }
 
     }
-    int i = 1;
+    ArrayList<Object> ar = new ArrayList<>();
 
     private void Property(String number) {
         try {
+
             ResultSet pro = db.preProGetir("satisBilgiEkrani", number);
             while (pro.next()) {
-                Urunler ur = new Urunler();
+                ur = new UrunProperty();
                 ur.setUAdi(pro.getString("uAdi"));
                 lblUrun.setText("  " + pro.getString("uAdi"));
                 ur.setUKisaAciklama(pro.getString("uKisaAciklama"));
@@ -211,45 +210,86 @@ public class SatisController implements Initializable {
                 ur.setSezon(pro.getString("sBaslik"));
                 ur.setBeden(pro.getString("bBaslik"));
                 ur.setRenk(pro.getString("rAdi"));
-                ur.setUTarih(pro.getString("tarih"));
-                ur.setDurum(pro.getBoolean("durum"));
-                lblAdet.setText(String.valueOf(pro.getInt("adet")) + " ");
+                lblAdet.setText("1");
                 ur.setAdet(i);
                 i++;
+                ur.setUrunID(pro.getInt("urunID"));
 
+                ur.setSilButon(true);
                 kliste.add(ur);
-
                 fillTable();
-                txtBarkod.setText("");
 
             }
+
         } catch (SQLException ex) {
             System.out.println("Tablo Doldur hatası : " + ex);
         }
     }
 
     @FXML
-    public void OdemeEkraniStart() throws Exception {
+    public void ekle() {
+
+        sf = SatisHibernateUtil.getSessionFactory();
+        sesi = sf.getCurrentSession();
+        tr = sesi.beginTransaction();
+        Sepet sp = fillSepet(sesi);
+        sesi.save(sp);
+        ar.add(sp.getSepetID());
+
+        tr.commit();
+
+    }
+
+    private Sepet fillSepet(Session sesi) {
+        Sepet sp = new Sepet();
+        sp.setRefKodu(lblRef.getText());
+        sp.setPersonelID(per.getPersonelID());
+        Query wuery = sesi.getNamedQuery("Urunler.findByBarkodNo").setParameter("barkodNo", txtBarkod.getText());
+        Urunler ls = (Urunler) wuery.uniqueResult();
+
+        sp.setUrunID(ls.getUrunID());
+
+        sp.setUrunFiyat(ls.getUFiyat());
+        sp.setAdet((short) 1);
+        sp.setDurum(false);
+        sp.setTarih(new Date());
+        return sp;
+    }
+
+    @FXML
+    public void OdemeEkraniStart(ActionEvent event) throws Exception {
+        String name = buttonName(event);
+        int refID = per.getPersonelID();
+
         Parent root = null;
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OdemeEkrani.fxml"));
         root = fxmlLoader.load();
         OdemeController cont = fxmlLoader.getController();
-        cont.getRefCode(lblRef.getText());
+        cont.getRefCode(lblRef.getText(), lblKasa.getText(), name, lblFiyat.getText(), refID);
+        cont.getTotal(BigDecimal.valueOf(tot));
         stage.setScene(new Scene(root));
         stage.show();
 
+//        if (!kliste.isEmpty()) {
+//           
+//           
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Ürün Girişi Yapılmamıştır", "HATA ", JOptionPane.WARNING_MESSAGE);
+//        }
     }
+    Double tot;
 
     private void TutarHesapla() throws NumberFormatException {
-
-        para.add(Double.valueOf(lblTutar.getText().trim()));
         Double price = 0.00;
-        for (Double items : para) {
 
-            price += items;
+        for (UrunProperty item : kliste) {
+            String x = String.valueOf(item.getUFiyat());
+            Double urunFiyat = Double.valueOf(x);
+            price += urunFiyat;
 
         }
+        tot = price;
         lblFiyat.setText(price.toString() + "     ");
 
     }
@@ -268,18 +308,16 @@ public class SatisController implements Initializable {
         } catch (Exception e) {
             System.out.println("barkod hatası : " + e);
         }
-//        for (int j = 0; j < (barkod.size() - 1); j++) {
-//            if (barkod.get(j).equals(txtBarkod.getText())) {
-//                i = "";
-//            }
-//        }
 
         return i;
     }
+    Object val;
+    @FXML
+    TableColumn<UrunProperty, Boolean> sil;
 
     private void fillTable() {
         table.setItems(kliste);
-        for (Urunler item : kliste) {
+        for (UrunProperty item : kliste) {
 
             uAdi.setCellValueFactory(new PropertyValueFactory<>("uAdi"));
             uKisaAciklama.setCellValueFactory(new PropertyValueFactory<>("uKisaAciklama"));
@@ -287,25 +325,74 @@ public class SatisController implements Initializable {
             sezon.setCellValueFactory(new PropertyValueFactory<>("sezon"));
             beden.setCellValueFactory(new PropertyValueFactory<>("beden"));
             renk.setCellValueFactory(new PropertyValueFactory<>("renk"));
-            uTarih.setCellValueFactory(new PropertyValueFactory<>("uTarih"));
             adet.setCellValueFactory(new PropertyValueFactory<>("adet"));
-            Terzi.setCellValueFactory(new PropertyValueFactory<Urunler, Boolean>("durum"));
-            Terzi.setCellFactory(new Callback<TableColumn<Urunler, Boolean>, TableCell<Urunler, Boolean>>() {
+
+            sil.setCellValueFactory(
+                    new Callback<TableColumn.CellDataFeatures<UrunProperty, Boolean>, ObservableValue<Boolean>>() {
+
+                        @Override
+                        public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<UrunProperty, Boolean> p) {
+                            return new SimpleBooleanProperty(p.getValue() != null);
+                        }
+                    });
+
+            sil.setCellFactory(
+                    new Callback<TableColumn<UrunProperty, Boolean>, TableCell<UrunProperty, Boolean>>() {
+
+                        @Override
+                        public TableCell<UrunProperty, Boolean> call(TableColumn<UrunProperty, Boolean> p) {
+                            return new ButtonCell();
+                        }
+
+                    });
+        }
+    }
+
+    private class ButtonCell extends TableCell<UrunProperty, Boolean> {
+
+        final Button cellButton = new Button("Sil");
+
+        ButtonCell() {
+
+            //Action when the button is pressed
+            cellButton.setOnAction(new EventHandler<ActionEvent>() {
 
                 @Override
-                public TableCell<Urunler, Boolean> call(TableColumn<Urunler, Boolean> p) {
-                    return new CheckBoxTableCell<Urunler, Boolean>();
-                }
-                /*      Callback<TableColumn<Urunler, Boolean>, TableCell<Urunler, Boolean>> booleanCellFactory = 
-                 new Callback<TableColumn<Urunler, Boolean>, TableCell<Urunler, Boolean>>() {
-                 @Override
-                 public TableCell<Urunler, Boolean> call(TableColumn<Urunler, Boolean> p) {
-                 return new BooleanCell();
-                 }
-                 };*/
+                public void handle(ActionEvent t) {
+                    // get Selected Item
+                    UrunProperty urunler = (UrunProperty) ButtonCell.this.getTableView().getItems().get(ButtonCell.this.getIndex());
+                    //remove selected item from the table list
+                    TableRow row = getTableRow();
+                    int rowNumber = row.getIndex();
+                    SessionFactory sff = SatisHibernateUtil.getSessionFactory();
+                    Session session = sff.getCurrentSession();
+                    Transaction trr = session.beginTransaction();
 
-//            kalanAdet.setCellValueFactory(new PropertyValueFactory<>("kalan"));
+                    String hql = ("delete from Sepet where sepetID=" + ar.get(rowNumber));
+                    session.createQuery(hql).executeUpdate();
+                    trr.commit();
+                    ar.remove(rowNumber);
+//                       session.clear();
+//                       sff.close();
+                    kliste.remove(urunler);
+//              
+
+                    TutarHesapla();
+                }
             });
+
+        }
+
+        //Display button if the row is not empty
+        @Override
+        protected void updateItem(Boolean t, boolean empty) {
+            super.updateItem(t, empty);
+            if (!empty) {
+                setGraphic(cellButton);
+
+            } else {
+                setGraphic(null);
+            }
         }
     }
 
@@ -329,7 +416,6 @@ public class SatisController implements Initializable {
         txtParaUstu.setText(hesap);
     }
 
-    @FXML
     private void labelAdetYaz(ActionEvent event) {
         String btn = "";
         Button button = (Button) event.getSource();
@@ -340,6 +426,13 @@ public class SatisController implements Initializable {
         btn = btnName.replace("s", "");
 
         lblAdet.setText(btn);
+    }
+
+    public String buttonName(ActionEvent event) {
+        Button button = (Button) event.getSource();
+        String btnName = button.getId();
+        btnName = btnName.replace("btn", "");
+        return btnName;
     }
 
     private double getButtonName(ActionEvent event) {
@@ -366,6 +459,18 @@ public class SatisController implements Initializable {
 
     }
 
+    @FXML
+    private void temizle(){
+        lblAdet.setText("");
+        lblAlinanPara.setText("");
+        lblBarkod.setText("");
+        lblFiyat.setText("");
+        lblUrun.setText("");
+        lblTutar.setText("");
+//        UrunProperty urun = new UrunProperty();
+//        kliste.remove(urun);
+//        
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -378,8 +483,8 @@ public class SatisController implements Initializable {
         lblBarkod.setGraphic(new ImageView("images/BARKOD.png"));
         lblTl.setGraphic(new ImageView("images/TL.png"));
         btnBeklet.setGraphic(new ImageView("images/WAIT.png"));
-        btnBeklet.setText("SATIŞ" + "\n" + "BEKLET");
-     
+        btnBeklet.setText("SATIŞ" + "\n" + "TEMİZLE");
+        btnOk.setGraphic(new ImageView("images/OK.png"));
         lblAlinanPara.setGraphic(new ImageView("images/MONEY.png"));
         lblParaUstu.setGraphic(new ImageView("images/COINS.png"));
         btnKart.setGraphic(new ImageView("images/CARD.png"));

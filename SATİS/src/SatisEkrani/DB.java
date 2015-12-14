@@ -94,6 +94,32 @@ public class DB {
         return rs;
     }
     
+//    public ResultSet updateTerziDurum(String proName, int terziDurum , int  ){
+//        ResultSet rs = null;
+//        try {
+//            stmt = conn.prepareCall("{ Call " + proName + "(?) }");
+//            stmt.setString(1, ara);
+//            rs = stmt.executeQuery();
+//        } catch (Exception ex) {
+//            System.err.println("Pro Getirme Hatası : "+ ex);
+//        }
+//        return rs;
+//    }
+    
+     public ResultSet sepetEkle(String proName, String refCode, int perID,String barkod) {
+        ResultSet rs = null;
+        try {
+            stmt = conn.prepareCall("{ Call " + proName + "(?,?,?) }");
+            stmt.setString(1, refCode);
+            stmt.setInt(2, perID);
+            stmt.setString(3, barkod);
+            rs = stmt.executeQuery();
+        } catch (Exception ex) {
+            System.err.println("Sepet Ekleme Hatası : "+ ex);
+        }
+        return rs;
+    }
+    
     
     //data ekleme
     public int dataEkle(String tableName, String[] dizi){
@@ -140,7 +166,7 @@ public class DB {
      public ResultSet barkodKontrol(String barkodNo){
     ResultSet rs = null;
          try {
-             rs = st.executeQuery("select barkodNo from urunler where  barkodNo =" + barkodNo);
+             rs = st.executeQuery("select barkodNo from urunler where  barkodNo = '" + barkodNo+"'");
          } catch (Exception e) {
              System.out.println("Barkod Kontrol Hatası : " + e);
          }
