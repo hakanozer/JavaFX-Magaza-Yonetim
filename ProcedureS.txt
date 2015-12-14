@@ -1,0 +1,65 @@
+USE [mavi]
+GO
+/****** Object:  StoredProcedure [dbo].[kullaniciGiris]    Script Date: 14.12.2015 09:29:28 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[kullaniciGiris]
+@kAdi nvarchar(30) = NULL,
+@kSifre nvarchar(32) = NULL,
+@kYetki nvarchar(5) = NULL
+AS
+
+IF @kYetki='admin'
+BEGIN 
+	SELECT * FROM mudurler WHERE mKuladi=@kAdi and mSifre=@kSifre
+END 
+ELSE 
+BEGIN 
+	SELECT * FROM personel WHERE pKulAdi=@kAdi and pSifre=@kSifre
+END
+
+
+///////////////////////////////////////
+
+USE [mavi]
+GO
+/****** Object:  StoredProcedure [dbo].[faturaUrunleriniGetir]    Script Date: 14.12.2015 12:20:20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[faturaUrunleriniGetir] 
+@refKod nvarchar(30) = NULL
+AS
+SELECT u.uAdi,sep.refKodu,u.barkodNo,s.sBaslik,u.uKisaAciklama, sep.urunFiyat,b.bBaslik,r.rAdi,sep.adet,p.pKulAdi,p.pAdi,p.pSoyadi, sat.fiyat, sat.odemeTipi,sat.sTarih 
+FROM urunler u
+inner join renkler r on  r.renkID=u.renkID
+inner join sezonlar s on s.sezonID=u.sezonID
+inner join bedenler b on b.bedenID=u.bedenID
+inner join sepet sep on sep.urunID=u.urunID
+inner join personel p on p.personelID=sep.personelID
+inner join satis sat on sep.refKodu=sat.sepetRefKodu
+WHERE sep.refKodu=@refKod
+
+////////////////////////////////////////
+
+USE [mavi]
+GO
+/****** Object:  StoredProcedure [dbo].[urunIadeIslemi]    Script Date: 14.12.2015 12:20:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[urunIadeIslemi] 
+@refKod nvarchar(30) = NULL,
+@urunIDsi nvarchar(30) = NULL,
+@ufiyat Money = NULL
+AS
+DELETE TOP(1) FROM sepet WHERE (refKodu=@refKod) and (urunID=@urunIDsi)
+UPDATE stoklar SET kalanAdet=kalanAdet+1  WHERE  stokID IN (SELECT TOP 1 stokID  FROM stoklar WHERE urunID=@urunIDsi)
+UPDATE satis SET fiyat=fiyat-@ufiyat WHERE sepetRefKodu=@refKod
+
+
+
