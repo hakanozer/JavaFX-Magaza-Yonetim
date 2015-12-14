@@ -79,6 +79,23 @@ public class MsSqlCon {
         }
     return rs;
     }
-
+    CallableStatement procedurKGrisi;
+    String admin="admin";
+    public ResultSet yoneticiGirisi(String kullaniciAdi,String sifresi)
+    {
+        try {
+            procedurKGrisi = conn.prepareCall("{ Call kullaniciGiris(?,?,?) }");
+            procedurKGrisi.setString(1, kullaniciAdi);
+            procedurKGrisi.setString(2, sifresi);
+            procedurKGrisi.setString(3, admin);
+            rs=procedurKGrisi.executeQuery();
+            
+        } catch (Exception e) {
+        }
+            
+    return rs;
+    }
+    
+    
      
 }

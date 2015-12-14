@@ -11,10 +11,10 @@ public class SatisIptal extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLmain.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLYoneticiGiris.fxml"));
         
         Scene scene = new Scene(root);
-        stage.setTitle("ÜRÜN İADE & DEĞİŞİM");
+        stage.setTitle("Kullanıcı Girişi");
         stage.setScene(scene);
         stage.show();
     }
