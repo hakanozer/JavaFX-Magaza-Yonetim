@@ -72,15 +72,13 @@ public class FXMLmainController implements Initializable {
     public void faturaUrunleriniGetir(ActionEvent event) {
         oFaturaDetay.removeAll(oFaturaDetay);
         ResultSet rs = faturaIslem.faturaGetir(txtFaturaNo.getText());
-         
+        boolean durum=false;
         try {
-            if(rs.getRow()==0)
-            {
-                JOptionPane.showMessageDialog(null, "Böyle Bir Satış Yoktur!");
-            }
-        
+          
             int i = 0;
             while (rs.next()) {
+                
+            durum=true;
                 uruniade.setDisable(false);
 
                 i++;
@@ -104,7 +102,10 @@ public class FXMLmainController implements Initializable {
                 sI.setUrunSirasi("" + i);
                 oFaturaDetay.add(sI);
             }
-
+            if(durum==false)
+            {
+                JOptionPane.showMessageDialog(null, "Böyle Bir Satış Yoktur!");
+            }
             faturaUrunleri.setItems(oFaturaDetay);
 
             for (PropertySatisIptal item : oFaturaDetay) {

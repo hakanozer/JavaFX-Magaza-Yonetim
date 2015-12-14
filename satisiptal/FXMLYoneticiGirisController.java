@@ -6,6 +6,7 @@
 package satisiptal;
 
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -44,12 +45,13 @@ public class FXMLYoneticiGirisController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    MsSqlCon kullaniciSorgula = new MsSqlCon();
+    MsSqlCon db = new MsSqlCon();
 
     @FXML
-    private void yoneticiGirisi(ActionEvent event) {
+    private void yoneticiGirisi(ActionEvent event) throws NoSuchAlgorithmException {
         String deger="yetkisiz";
-        ResultSet rs = kullaniciSorgula.yoneticiGirisi(yKAdi.getText(), yKSifresi.getText());
+      
+        ResultSet rs = db.yoneticiGirisi(yKAdi.getText(), db.md5(yKSifresi.getText()));
         try {
             while(rs.next())
             {

@@ -1,5 +1,8 @@
 package satisiptal;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +28,8 @@ public class MsSqlCon {
     // PreparedStatement kullanımı
     PreparedStatement prSt = null;
     
-    public MsSqlCon () {
+    public MsSqlCon () 
+    {
         try {
             if(conn ==  null) {
                 Class.forName(driver);
@@ -38,9 +42,9 @@ public class MsSqlCon {
         }
         
     }
-    
-   
-    public void kapat(){
+       
+    public void kapat()
+    {
         try {
             conn.close();
             st.close();
@@ -66,7 +70,7 @@ public class MsSqlCon {
     
     }
     
-     CallableStatement procedurFatura;
+    CallableStatement procedurFatura;
     public ResultSet faturaGetir(String faturaNo)
     { 
         try {
@@ -79,6 +83,7 @@ public class MsSqlCon {
         }
     return rs;
     }
+        
     CallableStatement procedurKGrisi;
     String admin="admin";
     public ResultSet yoneticiGirisi(String kullaniciAdi,String sifresi)
@@ -96,6 +101,20 @@ public class MsSqlCon {
     return rs;
     }
     
+    public String md5(String deger) throws NoSuchAlgorithmException
+    {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(deger.getBytes());
+            BigInteger number = new BigInteger(1, messageDigest);
+            String hashtext = number.toString(16);
+            // Now we need to zero pad it if you actually want the full 32 chars.
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+       
+    }
+      
     
      
-}
+    }
