@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #0a6893;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sadmingiris.FXMLDocumentController">
+    <children>
+      <TextField fx:id="kuladi" layoutX="136.0" layoutY="85.0" prefHeight="30.0" prefWidth="229.0" />
+      <Label alignment="CENTER" layoutX="-5.0" layoutY="14.0" prefHeight="53.0" prefWidth="400.0" text="SÜPER ADMİN GİRİŞ" textAlignment="CENTER" textFill="#eeeeee">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="90.0" text="Kullanıcı Adı :" textFill="#00aaff">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="140.0" prefHeight="20.0" prefWidth="83.0" text="Şifre             :" textFill="#00aaff">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+         <PasswordField fx:id="sifre" layoutX="136.0" layoutY="130.0" onAction="#giris" prefHeight="30.0" prefWidth="229.0" />
+      <Button fx:id="button" layoutX="268.0" layoutY="172.0" mnemonicParsing="false" onAction="#giris" onKeyPressed="#giris" prefHeight="44.0" prefWidth="97.0" style="-fx-background-color: white;" text="Giriş Yap" />
+    </children>
+</AnchorPane>
