@@ -21,10 +21,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author JavaSabah
+ * @author Gamze
  */
 @Entity
-@Table(name = "urunler", catalog = "mavi", schema = "dbo")
+@Table(catalog = "mavi", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Urunler.findAll", query = "SELECT u FROM Urunler u"),
@@ -43,28 +43,23 @@ public class Urunler implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "urunID", nullable = false)
+    @Column(nullable = false)
     private Integer urunID;
-    @Column(name = "superID")
     private Integer superID;
-    @Column(name = "sezonID")
     private Integer sezonID;
-    @Column(name = "bedenID")
     private Integer bedenID;
-    @Column(name = "renkID")
     private Integer renkID;
-    @Column(name = "barkodNo", length = 100)
+    @Column(length = 100)
     private String barkodNo;
-    @Column(name = "uAdi", length = 255)
+    @Column(length = 255)
     private String uAdi;
-    @Column(name = "uKisaAciklama", length = 500)
+    @Column(length = 500)
     private String uKisaAciklama;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "uFiyat", precision = 19, scale = 4)
+    @Column(precision = 19, scale = 4)
     private BigDecimal uFiyat;
-    @Column(name = "uResim", length = 500)
+    @Column(length = 500)
     private String uResim;
-    @Column(name = "uTarih")
     @Temporal(TemporalType.TIMESTAMP)
     private Date uTarih;
 

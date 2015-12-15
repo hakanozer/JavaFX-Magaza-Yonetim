@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="satisIade.FXMLYoneticiGirisController">
+   <children>
+      <TextField fx:id="yKAdi" layoutX="82.0" layoutY="78.0" prefHeight="35.0" prefWidth="236.0" promptText="Kullanıcı Adı" />
+      <TextField fx:id="yKSifresi" layoutX="82.0" layoutY="150.0" prefHeight="35.0" prefWidth="236.0" promptText="Şifre" />
+      <Button fx:id="btnGiris" layoutX="206.0" layoutY="188.0" mnemonicParsing="false" onAction="#yoneticiGirisi" prefHeight="35.0" prefWidth="112.0" text="Yönetici Girişi" />
+      <Label layoutX="82.0" layoutY="61.0" text="Kullanıcı Adı:" />
+      <Label layoutX="82.0" layoutY="133.0" text="Şifre:" />
+   </children>
+</AnchorPane>

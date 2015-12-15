@@ -11,8 +11,6 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -23,10 +21,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author JavaSabah
+ * @author Gamze
  */
 @Entity
-@Table(name = "satis", catalog = "mavi", schema = "dbo")
+@Table(catalog = "mavi", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Satis.findAll", query = "SELECT s FROM Satis s"),
@@ -40,19 +38,15 @@ public class Satis implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "satisID", nullable = false)
+    @Column(nullable = false)
     private Integer satisID;
-    @Column(name = "sepetRefKodu", length = 50)
+    @Column(length = 50)
     private String sepetRefKodu;
-    @Column(name = "personelID")
     private Integer personelID;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "fiyat", precision = 19, scale = 4)
+    @Column(precision = 19, scale = 4)
     private BigDecimal fiyat;
-    @Column(name = "odemeTipi")
     private Short odemeTipi;
-    @Column(name = "sTarih")
     @Temporal(TemporalType.TIMESTAMP)
     private Date sTarih;
 
@@ -133,7 +127,7 @@ public class Satis implements Serializable {
 
     @Override
     public String toString() {
-        return "SatisEkrani.Satis[ satisID=" + satisID + " ]";
+        return "Entities.Satis[ satisID=" + satisID + " ]";
     }
     
 }

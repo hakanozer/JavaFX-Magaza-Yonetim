@@ -23,10 +23,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author JavaSabah
+ * @author Gamze
  */
 @Entity
-@Table(name = "sepet", catalog = "mavi", schema = "dbo")
+@Table(catalog = "mavi", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Sepet.findAll", query = "SELECT s FROM Sepet s"),
@@ -41,24 +41,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Sepet implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     @Basic(optional = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "sepetID", nullable = false)
+    @Column(nullable = false)
     private Integer sepetID;
-    @Column(name = "refKodu", length = 50)
+    @Column(length = 50)
     private String refKodu;
-    @Column(name = "personelID")
     private Integer personelID;
-    @Column(name = "urunID")
     private Integer urunID;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "urunFiyat", precision = 19, scale = 4)
+    @Column(precision = 19, scale = 4)
     private BigDecimal urunFiyat;
-    @Column(name = "adet")
     private Short adet;
-    @Column(name = "durum")
     private Boolean durum;
-    @Column(name = "tarih")
     @Temporal(TemporalType.TIMESTAMP)
     private Date tarih;
 
@@ -155,7 +150,7 @@ public class Sepet implements Serializable {
 
     @Override
     public String toString() {
-        return "SatisEkrani.Sepet[ sepetID=" + sepetID + " ]";
+        return "Entities.Sepet[ sepetID=" + sepetID + " ]";
     }
     
 }

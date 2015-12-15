@@ -3,6 +3,8 @@ package SatisEkrani;
 import Entities.Satis;
 import Entities.Sepet;
 import Entities.UrunProperty;
+import Entities.Stoklar;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -14,10 +16,13 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,12 +35,17 @@ import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableView.TableViewSelectionModel;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.swing.Action;
 import javax.swing.JOptionPane;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -77,7 +87,7 @@ public class OdemeController implements Initializable {
     @FXML
     private Button btnOdemeOnay;
     @FXML
-    private int refID;
+    private int perID;
     @FXML
     private Short odemeTipi;
     @FXML
@@ -86,17 +96,17 @@ public class OdemeController implements Initializable {
     DB db = new DB();
     ResultSet rs = null;
 
-    SessionFactory sf;
+    SessionFactory sf = SatisHibernateUtil.getSessionFactory();
     Session sesi;
     Transaction tr;
     Satis st = new Satis();
     Boolean newValue;
-    ArrayList<Integer> ar = new ArrayList<>();
+    ArrayList<Integer> urunIDList = new ArrayList<>();
 
-    public void getRefCode(String ref, String personel, String button, String total, int refID) {
+    public void getRefCode(String ref, String personel, String button, String total, int perID) {
         this.ref = ref;
         this.per = personel;
-        this.refID = refID;
+        this.perID = perID;
         if (button.contains("Nakit")) {
             this.odemeTipi = 1;
         } else if (button.contains("Kart")) {
@@ -122,6 +132,7 @@ public class OdemeController implements Initializable {
         this.tot = total;
         return tot;
     }
+    ArrayList<Integer> terziArray = new ArrayList<>();
 
     private void fillList() {
         try {
@@ -132,9 +143,12 @@ public class OdemeController implements Initializable {
                 ur.setUFiyat(rs.getBigDecimal(3));
                 ur.setAdet(rs.getInt(1));
                 ur.setDurum(rs.getBoolean(4));
+                ur.setSepetID(rs.getInt("sepetID"));
 
                 kliste.add(ur);
-                ar.add(rs.getInt(5));
+                urunIDList.add(rs.getInt(5));
+
+                terziArray.add(ur.getSepetID());
                 fillTable();
 
             }
@@ -167,45 +181,149 @@ public class OdemeController implements Initializable {
     Integer rowNumber;
 
     @FXML
-    public void ekle() {
+    public void ekle(ActionEvent evt) {
         try {
-            sf = SatisHibernateUtil.getSessionFactory();
-            sesi = sf.getCurrentSession();
-            tr = sesi.beginTransaction();
-            Satis st = InsertSatis(sesi);
-            sesi.save(st);
-            tr.commit();
+            updateTerzi();
+            InsertSatis();
+            updateStok();
+
+            
+              
+     closeWindow();
             JOptionPane.showMessageDialog(null, "Ürün Satışı Tamamlanmıştır.");
 
-            closeWindow();
-            sf.close();
+          
+ 
+            
+            //       sf.close();
         } catch (Exception e) {
             System.out.println("Ürün Satışı Update Hatası : " + e);
             JOptionPane.showMessageDialog(null, "Ürün Satışı Sırasında Bir Sorun Oluştu!", "Hata", JOptionPane.WARNING_MESSAGE);
         }
+         
+
+   
+    }
+    private Stage stage;
+     private Parent replaceSceneContent(String fxml) throws Exception {
+        Parent page = (Parent) FXMLLoader.load(OdemeController.class.getResource(fxml), null, new JavaFXBuilderFactory());
+        Scene scene = stage.getScene();
+       page.getParent().getChildrenUnmodifiable().clear();
+        if (scene == null) {
+            scene = new Scene(page, 700, 450);
+            scene.getStylesheets().add(OdemeController.class.getResource("SatisEkrani\\CSS.css").toExternalForm());
+            stage.setScene(scene);
+        } else {
+            stage.getScene().setRoot(page);
+        }
+        stage.sizeToScene();
+        return page;
+    }
+
+    private void updateStok() {
+        Session session = sf.openSession();
+        Transaction tx = null;
+        try {
+
+            for (Integer itemID : urunIDList) {
+                tx = session.beginTransaction();
+                Stoklar stok = getURunIDFromStock(itemID);
+
+                int id = stok.getStokID();
+     
+               
+            String hql = ("update Stoklar set kalanAdet=kalanAdet-1 where stokID=" + id);
+             int a = session.createQuery(hql).executeUpdate();
+                tx.commit();
+
+            }
+
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println("update Stok : " + e);
+        } finally {
+            session.close();
+        }
+    }
+
+    private Stoklar getURunIDFromStock(Integer itemID) {
+        Session session = sf.openSession();
+        Transaction tx = null;
+        Stoklar stok = null;
+
+        try {
+            tx = session.beginTransaction();
+            Query query = session.getNamedQuery("Stoklar.findByUrunID").setParameter("urunID", itemID).setMaxResults(1);
+            stok = (Stoklar) query.uniqueResult();
+            tx.commit();
+
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println("setID Stok : " + e);
+        } finally {
+            session.close();
+        }
+        return stok;
 
     }
 
-    private void updateTerzi(Boolean newValue) {
-        SessionFactory sff = SatisHibernateUtil.getSessionFactory();
-        Session sessi = sff.getCurrentSession();
-        Transaction trr = sessi.beginTransaction();
-        Sepet sp = new Sepet();
-        sp.setDurum(newValue);
-        sessi.update(sp);
-        tr.commit();
+    private void updateTerzi() {
+        Session session = sf.openSession();
+        Transaction tx = null;
+
+        try {
+           
+            for (int list : terziUrunList) {
+            tx = session.beginTransaction();
+            String hql = ("update Sepet set durum=1 where refKodu='" + ref + "' and sepetID = " + list + "");
+            session.createQuery(hql).executeUpdate();
+             tx.commit();
+            }
+        
+        
+
+          
+
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println("Terzi Update: " + e);
+        } finally {
+            session.close();
+        }
+    }
+       ArrayList<Integer> terziUrunList = new ArrayList<>();
+   
+       
+    private void InsertSatis() {
+
+        Session session = sf.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Satis st = new Satis();
+
+            st.setPersonelID(perID);
+            st.setSepetRefKodu(ref);
+            st.setFiyat(tot);
+            st.setOdemeTipi(odemeTipi);
+            st.setSTarih(new Date());
+
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
     }
 
-    private Satis InsertSatis(Session sesi) {
-        Satis st = new Satis();
-
-        st.setPersonelID(refID);
-        st.setSepetRefKodu(ref);
-        st.setFiyat(tot);
-        st.setOdemeTipi(odemeTipi);
-        st.setSTarih(new Date());
-        return st;
-    }
+    int satir;
 
     class BooleanCell extends TableCell<UrunProperty, Boolean> {
 
@@ -220,18 +338,25 @@ public class OdemeController implements Initializable {
                 public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                     if (isEditing()) {
                         commitEdit(newValue == null ? false : newValue);
+
                     }
-//                    updateTerzi(newValue);
-
-                    TableRow row = getTableRow();
-                    if (row != null) {
-                        rowNumber = row.getIndex();
-
-//                                   
-                        RowSelect(rowNumber);
+                    if (checkBox.isSelected()) {
+                        TableRow row = getTableRow();
+                        satir = row.getIndex();
+                          
+                        terziUrunList.add(terziArray.get(satir));
+         
+                    } else {
+              
+                        TableRow row = getTableRow();  
+                        satir = row.getIndex();
+                        terziUrunList.remove(terziArray.get(satir));
+                     
                     }
+           
+                    
 
-                }
+            }
 
             });
 
@@ -294,26 +419,58 @@ public class OdemeController implements Initializable {
 
     }
 
-    public void RowSelect(Integer rowNumber) {
+    private Sepet SepetID(Session sesi) {
+        Sepet sp = new Sepet();
 
-        for (int i = 0; i < ar.size(); i++) {
-            System.out.println("ROW --- URUN ID : " + ar.get(rowNumber));
-        }
-
+        return sp;
     }
 
-    private void closeWindow() {
+//    public void RowSelect(Integer rowNumber) {
+//
+//        for (int i = 0; i < urunIDList.size(); i++) {
+//            System.out.println("ROW --- URUN ID : " + urunIDList.get(rowNumber));
+//        }
+//
+//    }
+
+    private void closeWindow() throws IOException {
+
         Stage st = (Stage) btnOdemeOnay.getScene().getWindow();
+
         st.close();
+
     }
+
+    private void getSatisEkrani() throws IOException {
+//        FXMLLoader loader = new FXMLLoader();
+//        Pane p = loader.load(getClass().getResource("satisEkrani.fxml").openStream());
+//        SatisController controller = (SatisController) loader.getController();
+//        p.setUserData(controller);
+//        //     SatisController sc = (SatisController) p.getUserData();
+//        TableView table =(TableView) p.lookup("#table");
+//        table.getItems().clear();
+//        TextField txt=(TextField) p.lookup("#txtAlinanPara");
+//        txt.setText(null);
+ 
+    }
+    @FXML private Button btnOdemeIptal;
+    @FXML
+    private void odemeIptal() throws IOException{
+        
+       
+        Stage st = (Stage) btnOdemeIptal.getScene().getWindow();
+
+        st.close();
+
+    
+    }
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lblLogo.setGraphic(new ImageView("images/maviLOGO.png"));
         lblBackground.setGraphic(new ImageView("images/MAVI2.png"));
-//        btnOdemeOnay.setOnAction((event) -> {
 
-//        });
     }
 
 }

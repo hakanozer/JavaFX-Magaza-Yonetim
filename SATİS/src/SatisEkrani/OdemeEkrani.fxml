@@ -26,7 +26,7 @@
       <Label fx:id="lblOdeme" layoutX="78.0" layoutY="362.0" prefHeight="17.0" prefWidth="275.0" styleClass="actiontarget" stylesheets="@../SatisEkrani/CSS.css" text="ÖDEME TİPİ      :" />
       <Label fx:id="lblKasiyerAdi" layoutX="78.0" layoutY="386.0" prefHeight="17.0" prefWidth="275.0" styleClass="actiontarget" stylesheets="@../SatisEkrani/CSS.css" text="KASİYER İSİM   : " />
       <Button fx:id="btnOdemeOnay" layoutX="258.0" layoutY="435.0" mnemonicParsing="false" onAction="#ekle" prefHeight="25.0" prefWidth="121.0" stylesheets="@../SatisEkrani/CSS.css" text="ÖDEMEYI ONAYLA" />
-      <Button layoutX="107.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" stylesheets="@../SatisEkrani/CSS.css" text="ÖDEMEYI IPTAL ET" />
+      <Button fx:id="btnOdemeIptal" layoutX="107.0" layoutY="435.0" mnemonicParsing="false" onAction="#odemeIptal" prefHeight="25.0" prefWidth="121.0" stylesheets="@../SatisEkrani/CSS.css" text="ÖDEMEYI IPTAL ET" />
       <Label fx:id="lblReferans" layoutX="78.0" layoutY="339.0" prefHeight="17.0" prefWidth="275.0" styleClass="actiontarget" stylesheets="@../SatisEkrani/CSS.css" text="REFERANS NO  :" />
    </children>
 </AnchorPane>

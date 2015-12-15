@@ -19,54 +19,10 @@
     -fx-text-fill: black;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
-/*.button {
-  -fx-display: inline-block;
-  -fx-border-radius: 4px;
-  -fx-background-color: #f4511e;
-  -fx-border: none;
-  -fx-color: lightskyblue;
-  -fx-text-align: center;
-  -fx-font-size: 28px;
-  -fx-padding: 20px;
-  -fx-width: 200px;
-  -fx-transition: all 0.5s;
-  -fx-cursor: pointer;
-  -fx-margin: 5px;
-}*/
-
-/*.button span {
-  -fx-cursor: pointer;
-  -fx-display: inline-block;
-  -fx-position: relative;
-  -fx-transition: 0.5s;
-}*/
-/*
-
-*/
-/*.button :hover {
-  -fx-content: '»';
-  -fx-position: absolute;
-  -fx-opacity: 0;
-  -fx-top: 0;
-  -fx-right: -20px;
-  -fx-transition: 0.5s;
-}
-
-.button:hover span {
-  -fx-padding-right: 25px;
-}
-
-.button:hover span:after {
-  -fx-opacity: 1;
-  -fx-right: 0;
-}*/
 .labelPersonel{
    -fx-font-size: 40px;
    -fx-font-family: "Tw Cen MT Condensed Extra Bold";
-
    -fx-fill: #818181;
-
-   /*-fx-text-shadow: #555 4px 4px 4px;*/
    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.3) , 2, 0.0 , 0 , 1 )
 }
 .actiontarget {
@@ -81,7 +37,7 @@
 
     -fx-background-color: infotext;
     /*-fx-border-right-color: inherit;*/
-    -fx-border-collapse: collapse;
+    /*-fx-border-collapse: collapse;*/
     -fx-width: 100%;
 }
 .table-row-cell:empty {
@@ -91,10 +47,10 @@
     -fx-border-width: 0px;
 }
 
-.th {
+/*.th {
     -fx-padding: 8px;
     -fx-text-align: left;
     -fx-border-bottom: 1px solid #ddd;
-}
+}*/
 
 .tr:hover{background-color:#f5f5f5}

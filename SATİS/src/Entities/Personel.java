@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author JavaSabah
+ * @author Gamze
  */
 @Entity
 @Table(catalog = "mavi", schema = "dbo")
@@ -213,7 +213,7 @@ public class Personel implements Serializable {
 
     @Override
     public String toString() {
-        return "SatisEkrani.Personel[ personelID=" + personelID + " ]";
+        return "Entities.Personel[ personelID=" + personelID + " ]";
     }
     
 }

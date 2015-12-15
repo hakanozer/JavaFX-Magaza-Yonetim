@@ -3,14 +3,16 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=mavi</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://GAMZEKUCUKCOLAK:1433;databaseName=mavi</property>
     <property name="hibernate.connection.username">sa</property>
-    <property name="hibernate.connection.password">12345</property>
+    <property name="hibernate.connection.password">123456</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="Entities.Personel"/>
     <mapping class="Entities.Satis"/>
     <mapping class="Entities.Sepet"/>
+    <mapping class="Entities.Stoklar"/>
     <mapping class="Entities.UrunProperty"/>
     <mapping class="Entities.Urunler"/>
   </session-factory>

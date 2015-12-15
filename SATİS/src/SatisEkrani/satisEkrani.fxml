@@ -19,8 +19,8 @@
             <Font name="Agency FB Bold" size="47.0" />
          </font>
       </Label>
-      <Button fx:id="btnIptal" layoutX="215.0" layoutY="86.0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="94.0" styleClass="bevel-grey" stylesheets="@CSS.css" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="btnIade" layoutX="14.0" layoutY="86.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="94.0" styleClass="bevel-grey" stylesheets="@CSS.css" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+      <Button fx:id="btnIptal" layoutX="215.0" layoutY="86.0" lineSpacing="5.0" mnemonicParsing="false" onAction="#kasiyerCikis" prefHeight="46.0" prefWidth="94.0" styleClass="bevel-grey" stylesheets="@CSS.css" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="btnIade" layoutX="14.0" layoutY="86.0" mnemonicParsing="false" onAction="#urunIadeEt" prefHeight="46.0" prefWidth="94.0" styleClass="bevel-grey" stylesheets="@CSS.css" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
       <Label fx:id="lblBarkod" layoutX="14.0" layoutY="154.0" prefHeight="21.0" prefWidth="188.0" text="BARKOD KODU:">
          <font>
             <Font name="Arial Unicode MS" size="15.0" />
@@ -32,7 +32,7 @@
          </cursor></TextField>
       <Button fx:id="btnOk" layoutX="280.0" layoutY="206.0" mnemonicParsing="false" onAction="#BarkodBul" prefHeight="25.0" prefWidth="29.0" styleClass="bevel-grey" stylesheets="@CSS.css" />
       <Label fx:id="lblTl" layoutX="274.0" layoutY="26.0" prefHeight="37.0" prefWidth="28.0" />
-      <Button fx:id="btnBeklet" layoutX="116.0" layoutY="86.0" mnemonicParsing="false" onAction="#temizle" prefHeight="46.0" prefWidth="94.0" styleClass="bevel-grey" stylesheets="@CSS.css" />
+      <Button fx:id="btnBeklet" layoutX="116.0" layoutY="86.0" mnemonicParsing="false" onAction="#yeniSatisEkle" prefHeight="46.0" prefWidth="94.0" styleClass="bevel-grey" stylesheets="@CSS.css" />
       <Label fx:id="lblAdet" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" layoutX="341.0" layoutY="18.0" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #142800;" textAlignment="RIGHT" textFill="#36ff0e">
          <font>
             <Font name="Agency FB Bold" size="23.0" />

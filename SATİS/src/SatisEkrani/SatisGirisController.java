@@ -26,11 +26,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.effect.Reflection;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -50,9 +52,13 @@ public class SatisGirisController implements Initializable {
     @FXML
     private Label lblPersonel;
 
+
+
     @FXML
     private void giris(ActionEvent event) throws IOException {
 
+
+        
         Boolean durum = false;
         try {
             String personelAdi = txtKulAdi.getText();
@@ -132,7 +138,8 @@ public class SatisGirisController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lblBackground.setGraphic(new ImageView("images/MAVI.png"));
-
+   
     }
+
 
 }

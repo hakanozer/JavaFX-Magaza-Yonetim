@@ -5,14 +5,18 @@ import Entities.Personel;
 import Entities.Sepet;
 import Entities.Urunler;
 import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.rmi.server.UID;
 import java.sql.ResultSet;
+import satisIade.FXMLYoneticiGirisController;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
@@ -62,8 +66,6 @@ public class SatisController implements Initializable {
     @FXML
     private Label lblBarkod;
     @FXML
-    private Button btnSil;
-    @FXML
     private Label lblTl;
     @FXML
     private Label lblAlinanPara;
@@ -85,8 +87,6 @@ public class SatisController implements Initializable {
     private TextField txtBarkod;
     @FXML
     private TextField txtParaUstu;
-    @FXML
-    private Button btnUrunSil;
     @FXML
     private TableView table;
     @FXML
@@ -129,10 +129,13 @@ public class SatisController implements Initializable {
     private Button btn100Tl;
     @FXML
     private Label lblKasa;
-    @FXML
     private Personel per;
     @FXML
     private Button btnOk;
+    @FXML
+    private Button btnLogout;
+     @FXML
+    private Button btnYeniSatis;
     private Object stage;
 
     ObservableList<UrunProperty> kliste = FXCollections.observableArrayList();
@@ -144,6 +147,8 @@ public class SatisController implements Initializable {
     Transaction tr;
     int i = 1;
     UrunProperty ur;
+    @FXML
+    private Button btnC;
 
     public Personel getPer() {
         return per;
@@ -153,7 +158,23 @@ public class SatisController implements Initializable {
         this.per = per;
         lblKasa.setText(per.getPAdi().toUpperCase() + " " + per.getPSoyadi().toUpperCase());
     }
+   Parent root=null;    
+/*public void handleOK() throws IOException{
+    lblAdet.setText(null);
+    lblRef.setText(generateRefCode().toString());
+   kliste.removeAll();
+   lblFiyat.setText(null);
+   lblTutar.setText(null);
+   lblUrun.setText(null);
+   txtAlinanPara.setText("0.00");
+   txtParaUstu.setText("0.00");
 
+ //  Stage stage =(Stage) root.getScene().getWindow(); 
+//   
+//   root=FXMLLoader.load(getClass().getResource("satisEkrani.fxml"));
+//   stage.setScene(new Scene(root));
+  // stage.show();
+}*/
     @FXML
     private void BarkodBul() {
 
@@ -172,7 +193,42 @@ public class SatisController implements Initializable {
         }
 
     }
+    @FXML
+    private void yeniSatisEkle(){
+        kliste.removeAll();
+        i=1;
+    temizle();
+     table.getItems().clear();
+     txtAlinanPara.setText("0.00");
+     txtParaUstu.setText("0.00");
+     lblRef.setText(null);
+     lblRef.setText(generateRefCode().toString());
+    
+    }
+@FXML
+private void kasiyerCikis(){
+        try {
+            closeWindow();
+            Parent root = null;
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SatisGiris.fxml"));
+        root = fxmlLoader.load();
+        
+        stage.setScene(new Scene(root));
+      
+        stage.show();
+           
+        } catch (IOException ex) {
+            Logger.getLogger(SatisController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+ private void closeWindow() throws IOException {
 
+        Stage st = (Stage) btnIptal.getScene().getWindow();
+
+        st.close();
+
+    }
     public UID generateRefCode() {
         UID cruUID = new UID();
         return cruUID;
@@ -226,7 +282,6 @@ public class SatisController implements Initializable {
         }
     }
 
-    @FXML
     public void ekle() {
 
         sf = SatisHibernateUtil.getSessionFactory();
@@ -235,8 +290,8 @@ public class SatisController implements Initializable {
         Sepet sp = fillSepet(sesi);
         sesi.save(sp);
         ar.add(sp.getSepetID());
-
         tr.commit();
+        
 
     }
 
@@ -251,7 +306,7 @@ public class SatisController implements Initializable {
 
         sp.setUrunFiyat(ls.getUFiyat());
         sp.setAdet((short) 1);
-        sp.setDurum(false);
+       sp.setDurum(false);
         sp.setTarih(new Date());
         return sp;
     }
@@ -259,24 +314,20 @@ public class SatisController implements Initializable {
     @FXML
     public void OdemeEkraniStart(ActionEvent event) throws Exception {
         String name = buttonName(event);
-        int refID = per.getPersonelID();
-
+        int perID = per.getPersonelID();
+   
         Parent root = null;
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OdemeEkrani.fxml"));
         root = fxmlLoader.load();
         OdemeController cont = fxmlLoader.getController();
-        cont.getRefCode(lblRef.getText(), lblKasa.getText(), name, lblFiyat.getText(), refID);
+        cont.getRefCode(lblRef.getText(), lblKasa.getText(), name, lblFiyat.getText(), perID);
         cont.getTotal(BigDecimal.valueOf(tot));
         stage.setScene(new Scene(root));
+     
         stage.show();
 
-//        if (!kliste.isEmpty()) {
-//           
-//           
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Ürün Girişi Yapılmamıştır", "HATA ", JOptionPane.WARNING_MESSAGE);
-//        }
+
     }
     Double tot;
 
@@ -348,6 +399,21 @@ public class SatisController implements Initializable {
         }
     }
 
+    @FXML
+    private void urunIadeEt(ActionEvent event) throws IOException {
+          Parent root = null;
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLYoneticiGiris.fxml"));
+        root = fxmlLoader.load();
+        // cont = fxmlLoader.getController();
+   
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+private void getSelectedInfoProduct(){
+
+    
+}
     private class ButtonCell extends TableCell<UrunProperty, Boolean> {
 
         final Button cellButton = new Button("Sil");
@@ -477,13 +543,13 @@ public class SatisController implements Initializable {
 //    btnIptal= new Button("fgnfgj" ,imageview); 
         lblRef.setText(generateRefCode().toString());
         btnIptal.setGraphic(new ImageView("images/DELETE.png"));
-        btnIptal.setText("SATIŞ" + "\n" + "İPTAL");
+        btnIptal.setText("KASA" + "\n" + "ÇIKIŞ");
         btnIade.setGraphic(new ImageView("images/RETURN.png"));
         btnIade.setText("SATIŞ" + "\n" + "İADE");
         lblBarkod.setGraphic(new ImageView("images/BARKOD.png"));
         lblTl.setGraphic(new ImageView("images/TL.png"));
         btnBeklet.setGraphic(new ImageView("images/WAIT.png"));
-        btnBeklet.setText("SATIŞ" + "\n" + "TEMİZLE");
+        btnBeklet.setText("YENİ" + "\n" + "SATIŞ");
         btnOk.setGraphic(new ImageView("images/OK.png"));
         lblAlinanPara.setGraphic(new ImageView("images/MONEY.png"));
         lblParaUstu.setGraphic(new ImageView("images/COINS.png"));
