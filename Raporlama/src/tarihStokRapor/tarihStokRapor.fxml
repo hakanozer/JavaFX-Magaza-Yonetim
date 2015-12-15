@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tarihStokRapor.TarihStokRaporController">
+   <children>
+      <DatePicker fx:id="dateBefore" editable="false" layoutX="91.0" layoutY="60.0" prefHeight="31.0" prefWidth="218.0" promptText="yyyy-mm-dd" showWeekNumbers="true" />
+      <DatePicker fx:id="dateAfter" editable="false" layoutX="91.0" layoutY="135.0" prefHeight="31.0" prefWidth="218.0" promptText="yyyy-mm-dd" showWeekNumbers="true" />
+      <Button layoutX="164.0" layoutY="203.0" mnemonicParsing="false" onAction="#stokRaporla" text="Raporla" />
+      <Label layoutX="185.0" layoutY="105.0" text="---" />
+      <ProgressBar fx:id="progresZaman" layoutX="93.0" layoutY="175.0" prefHeight="18.0" prefWidth="218.0" progress="0.0" />
+      <Button layoutX="238.0" layoutY="203.0" mnemonicParsing="false" onAction="#pdfOpen" text="Open" />
+   </children>
+</AnchorPane>

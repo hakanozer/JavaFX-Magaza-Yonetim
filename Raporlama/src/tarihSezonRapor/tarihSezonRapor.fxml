@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tarihSezonRapor.TarihSezonRaporController">
+   <children>
+      <DatePicker fx:id="dateBefore" editable="false" layoutX="94.0" layoutY="61.0" prefHeight="25.0" prefWidth="210.0" promptText="yyyy-mm-dd" showWeekNumbers="true" />
+      <DatePicker fx:id="dateAfter" editable="false" layoutX="94.0" layoutY="125.0" prefHeight="25.0" prefWidth="210.0" promptText="yyyy-mm-dd" showWeekNumbers="true" />
+      <Button layoutX="170.0" layoutY="206.0" mnemonicParsing="false" onAction="#sezonRaporla" text="Raporla" />
+      <Label layoutX="191.0" layoutY="100.0" text="---" />
+      <Button layoutX="238.0" layoutY="206.0" mnemonicParsing="false" onAction="#pdfOpen" text="Open" />
+      <ProgressBar fx:id="progresZaman" layoutX="94.0" layoutY="169.0" prefHeight="18.0" prefWidth="210.0" progress="0.0" />
+   </children>
+</AnchorPane>

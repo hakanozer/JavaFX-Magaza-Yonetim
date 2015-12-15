@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tarihUrunRapor.TarihUrunRaporController">
+   <children>
+      <Label layoutX="198.0" layoutY="81.0" text="---" />
+      <Button layoutX="172.0" layoutY="199.0" mnemonicParsing="false" onAction="#urunRaporla" text="Raporla" />
+      <DatePicker fx:id="dateBefore" layoutX="98.0" layoutY="43.0" promptText="yyyy-mm-dd" showWeekNumbers="true" />
+      <DatePicker fx:id="dateAfter" layoutX="98.0" layoutY="109.0" prefHeight="31.0" prefWidth="218.0" promptText="yyyy-mm-dd" showWeekNumbers="true" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maviproje.AnasayfaController">
+    <children>
+        <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Müdür">
+                    <items>
+                        <MenuItem fx:id="loginMenuItem" mnemonicParsing="false" text="Login" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="mudurEkleMenuItem" mnemonicParsing="false" text="Müdür Ekle" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="kapatMenuItem" mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Şube Kontrolü">
+                    <items>
+                        <MenuItem fx:id="subelerMenuItem" mnemonicParsing="false" text="Şubeler" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Yönetimler">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Ürünler" />
+                        <MenuItem mnemonicParsing="false" onAction="#urunRaporla" text="Ürün Raporu" />
+                        <MenuItem mnemonicParsing="false" onAction="#tarihUrunRaporlaMenuItem" text="Tarihe göre Raporla" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Stoklar" />
+                        <MenuItem mnemonicParsing="false" onAction="#stokRaporla" text="Stok Raporu" />
+                        <MenuItem mnemonicParsing="false" onAction="#tarihStokRaporlaMenuItem" text="Tarihe göre Raporla" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Sezonlar" />
+                        <MenuItem mnemonicParsing="false" onAction="#sezonRaporla" text="Sezon Raporu" />
+                        <MenuItem mnemonicParsing="false" onAction="#tarihSezonRaporlaMenuItem" text="Tarihe göre Raporla" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Admin ">
+                    <items>
+                        <MenuItem mnemonicParsing="false"  text="Güncelle" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false"  text="Grafikler">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#urunSatisGrafikMenuItem" text="Ürün Satış" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Label fx:id="lblResim" prefHeight="576.0" prefWidth="926.0" textFill="#00000001" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    </children>
+</AnchorPane>
