@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #009fda;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mavimudurler.FXMLDocumentController">
+   <children>
+      <TableView fx:id="mudurtable" layoutX="9.0" layoutY="376.0" onMouseClicked="#dataSelect" prefHeight="210.0" prefWidth="783.0">
+        <columns>
+          <TableColumn fx:id="mad" prefWidth="75.0" text="Müdür Adı" />
+          <TableColumn fx:id="msoyad" prefWidth="89.0" text="Müdür Soyadı" />
+            <TableColumn fx:id="mtel" prefWidth="64.0" text="Tel" />
+            <TableColumn fx:id="mctel" prefWidth="55.0" text="Cep Tel" />
+            <TableColumn fx:id="mmail" prefWidth="68.0" text="Mail" />
+            <TableColumn fx:id="madres" prefWidth="76.0" text="Adres" />
+            <TableColumn fx:id="musername" prefWidth="81.0" text="Username" />
+            <TableColumn fx:id="msifre" minWidth="0.0" prefWidth="76.0" text="Şifre " />
+            <TableColumn fx:id="mtarih" minWidth="0.0" prefWidth="82.0" text="Tarih" />
+            <TableColumn fx:id="msubeadi" minWidth="2.0" prefWidth="113.0" text="Sube adı" />
+        </columns>
+      </TableView>
+      <ListView fx:id="subeliste" layoutX="586.0" layoutY="59.0" onMouseClicked="#listSelect" prefHeight="284.0" prefWidth="200.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="341.0" prefHeight="17.0" prefWidth="763.0" text="MÜDÜRLER" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="586.0" layoutY="30.0" prefHeight="17.0" prefWidth="200.0" text="ŞUBELER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtadi" layoutX="121.0" layoutY="45.0" prefHeight="25.0" prefWidth="190.0" />
+      <TextField fx:id="txtsoyadi" layoutX="121.0" layoutY="84.0" prefHeight="25.0" prefWidth="190.0" />
+      <TextField fx:id="txttelefon" layoutX="121.0" layoutY="122.0" prefHeight="25.0" prefWidth="190.0" />
+      <TextField fx:id="txtcep" layoutX="121.0" layoutY="160.0" prefHeight="25.0" prefWidth="190.0" />
+      <TextField fx:id="txtmail" layoutX="121.0" layoutY="197.0" prefHeight="25.0" prefWidth="190.0" />
+      <TextField fx:id="txtusername" layoutX="121.0" layoutY="281.0" prefHeight="25.0" prefWidth="190.0" />
+      <Label layoutX="23.0" layoutY="52.0" text="Adı                      :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="88.0" text="Soyadı                :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="126.0" text="Telefon               :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="164.0" text="Cep                     :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="201.0" text="Mail                    :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="242.0" text="Adres                  : ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="285.0" text="Username           :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtadres" layoutX="121.0" layoutY="228.0" prefHeight="45.0" prefWidth="190.0" />
+      <TextField fx:id="txtsifre" layoutX="121.0" layoutY="317.0" prefHeight="25.0" prefWidth="190.0" />
+      <Label layoutX="27.0" layoutY="321.0" prefHeight="17.0" prefWidth="93.0" text="Şifre                   :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="367.0" layoutY="51.0" mnemonicParsing="false" onAction="#kaydetButtonAction" prefHeight="37.0" prefWidth="103.0" text="Ekle" />
+      <Button layoutX="367.0" layoutY="108.0" mnemonicParsing="false" onAction="#guncelleButtonAction" prefHeight="37.0" prefWidth="103.0" text="Düzenle" />
+      <Button layoutX="367.0" layoutY="163.0" mnemonicParsing="false" onAction="#silButtonAction" prefHeight="37.0" prefWidth="103.0" text="Sil" />
+      <Button layoutX="367.0" layoutY="220.0" mnemonicParsing="false" onAction="#temizle" prefHeight="37.0" prefWidth="103.0" text="Temizle" />
+      <Button layoutX="367.0" layoutY="273.0" mnemonicParsing="false" onAction="#printIt" prefHeight="37.0" prefWidth="103.0" text="tablo yazdır" />
+   </children>
+</AnchorPane>

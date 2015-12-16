@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <Label alignment="CENTER" layoutX="71.0" layoutY="66.0" prefHeight="141.0" prefWidth="429.0" text="Merhaba Dünya" textFill="#07a159">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="label" layoutX="212.0" layoutY="216.0" text="Label" />
+   </children>
+</AnchorPane>
