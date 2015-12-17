@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="subelergiris.SubeDuzenleController">
+    <children>
+        <TextField fx:id="tf_duzBaslik" layoutX="142.0" layoutY="36.0" onKeyReleased="#kontrol" prefHeight="25.0" prefWidth="216.0" />
+        <TextField fx:id="tf_duzTelefon" layoutX="142.0" layoutY="96.0" onKeyReleased="#kontrol" prefHeight="25.0" prefWidth="216.0" />
+        <TextField fx:id="tf_duzMail" layoutX="142.0" layoutY="151.0" onKeyReleased="#mailKontrol" prefHeight="25.0" prefWidth="216.0" />
+        <DatePicker fx:id="dp_duzTarih" layoutX="142.0" layoutY="211.0" onValueChange="#dpDegisim" prefHeight="25.0" prefWidth="216.0" />
+        <TextArea fx:id="ta_duzAdres" layoutX="400.0" layoutY="36.0" onKeyReleased="#kontrol" prefHeight="200.0" prefWidth="345.0" />
+        <Button fx:id="bt_duzVazgec" layoutX="464.0" layoutY="300.0" mnemonicParsing="false" onAction="#vazgecBasildi" text="Vazgeç" />
+        <Button fx:id="bt_duzSubeEkle" layoutX="565.0" layoutY="300.0" mnemonicParsing="false" onAction="#kaydetBasildi" text="Kaydet" />
+    </children>
+</AnchorPane>
