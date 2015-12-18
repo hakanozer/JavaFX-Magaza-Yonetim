@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anch" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FXMLIndexController">
+    <children>
+         <ImageView fitHeight="600.0" fitWidth="800.0">
+            <image>
+                <Image url="@../img/mavi.jpg" />
+            </image>
+        </ImageView>
+     <Pane fx:id="panee" layoutX="127.0" layoutY="69.0" prefHeight="463.0" prefWidth="546.0">
+             <children>
+            <Button fx:id="perEkle" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#personelEkle" prefHeight="130.0" prefWidth="160.0" textFill="#222633" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+           
+            <Button fx:id="personelDuzenle" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="160.0" mnemonicParsing="false" onAction="#personelDuzenle" prefHeight="130.0" prefWidth="160.0" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+               
+            <Button fx:id="terziKont" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="306.0" mnemonicParsing="false" onAction="#terziKontrol" prefHeight="130.0" prefWidth="160.0" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+              
+            <Button fx:id="kasaKapa" alignment="BOTTOM_LEFT" layoutX="190.0" layoutY="306.0" mnemonicParsing="false" onAction="#kasaKapat" prefHeight="130.0" prefWidth="326.0" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+               
+            <Button fx:id="satisIadeIslemi" alignment="BOTTOM_LEFT" layoutX="190.0" layoutY="14.0" mnemonicParsing="false" onAction="#satisIadeIslemleri" prefHeight="276.0" prefWidth="326.0" underline="true">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+              
+         </children>
+     </Pane>
+    </children>
+</AnchorPane>

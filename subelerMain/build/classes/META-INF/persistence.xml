@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="JavaFXApplication7PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>domain.Urunler</class>
+    <class>domain.Sepet</class>
+    <class>domain.Subeler</class>
+    <class>domain.SuperAdmin</class>
+    <class>domain.Satis</class>
+    <class>domain.Terziler</class>
+    <class>domain.Stoklar</class>
+    <class>domain.Renkler</class>
+    <class>domain.Bedenler</class>
+    <class>domain.Sezonlar</class>
+    <class>domain.Mudurler</class>
+    <class>domain.Personel</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://37.247.108.27;databaseName=mavi"/>
+      <property name="javax.persistence.jdbc.user" value="maviadmin"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="admin.123"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="txt" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oldu.olduController">
+    <children>
+        <Button fx:id="kapatbtn" layoutX="686.0" layoutY="459.0" onAction="#kasaKapat" text="TOPLAM NAKİT" AnchorPane.rightAnchor="15.0" />
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <TableView fx:id="satist" layoutX="71.0" layoutY="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="25.0">
+        <columns>
+          <TableColumn fx:id="satisID" text="satisID" />
+          <TableColumn fx:id="sepetRefKodu" prefWidth="130.0" text="sepetRefKodu" />
+            <TableColumn fx:id="personelID" prefWidth="130.0" text="personelID" />
+            <TableColumn fx:id="fiyat" prefWidth="130.0" text="fiyat" />
+            <TableColumn fx:id="odemeTipi" prefWidth="130.0" text="odemeTipi" />
+            <TableColumn fx:id="sTarih" prefWidth="167.0" text="sTarih" />
+        </columns>
+      </TableView>
+      <Button fx:id="toplabtn" layoutX="234.0" layoutY="516.0" mnemonicParsing="false" onAction="#topla" prefHeight="25.0" prefWidth="174.0" text="Gün Getir" AnchorPane.leftAnchor="234.0" />
+      <Label fx:id="toplamlbl" layoutX="18.0" layoutY="487.0" prefHeight="57.0" prefWidth="82.0" textFill="#ebe2e2" AnchorPane.leftAnchor="25.0" />
+      <DatePicker fx:id="datepicker" layoutX="234.0" layoutY="460.0" AnchorPane.leftAnchor="234.0" />
+      <Button fx:id="yazdirbtn" layoutX="15.0" layoutY="539.0" mnemonicParsing="false" onAction="#yazdırr" prefHeight="36.0" prefWidth="82.0" text="yazdır" AnchorPane.leftAnchor="15.0" />
+      <Label layoutX="234.0" layoutY="441.0" prefHeight="17.0" prefWidth="174.0" text="            Tarih Seçiniz" textFill="#eee5e5" AnchorPane.leftAnchor="234.0" />
+      <Label layoutX="25.0" layoutY="428.0" prefHeight="43.0" prefWidth="82.0" text="GÜNLÜK CİRO " textFill="#f83030" AnchorPane.leftAnchor="25.0" />
+      <Label fx:id="cirolbl" layoutX="800.0" layoutY="600.0" prefHeight="43.0" prefWidth="80.0" AnchorPane.rightAnchor="24.0" />
+      <Label layoutX="448.0" layoutY="454.0" prefHeight="36.0" prefWidth="192.0" text="&lt;&lt;&lt;&lt;  TARİH SECİN" textFill="#fff7f7">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="736.0" layoutY="499.0" prefHeight="25.0" prefWidth="28.0" rotate="-90.0" text="&lt;&lt;" textFill="#ebe4e4" />
+    </children>
+</AnchorPane>

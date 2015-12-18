@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="persnldznl.FXMLPersonelDuzenlemeSayfasiController">
+   <children>
+      <TextField fx:id="dznKonum" layoutX="135.0" layoutY="65.0" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <TextField fx:id="dznKAdi" layoutX="135.0" layoutY="105.0" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <TextField fx:id="dznSifre" layoutX="135.0" layoutY="145.0" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <TextField fx:id="dznAdi" layoutX="135.0" layoutY="185.0" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <TextField fx:id="dznSoyadi" layoutX="135.0" layoutY="225.0" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <TextField fx:id="dznTel" layoutX="135.0" layoutY="265.0" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <TextField fx:id="dznCep" layoutX="135.0" layoutY="305.0" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <TextField fx:id="dznMail" layoutX="135.0" layoutY="345.0" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <Label fx:id="lblKonum" layoutX="14.0" layoutY="69.0" text="Konum" />
+      <Label fx:id="lblKAdi" layoutX="14.0" layoutY="109.0" text="Kullanıcı Adı" />
+      <Label fx:id="lblsifre" layoutX="14.0" layoutY="149.0" text="Şifre" />
+      <Label fx:id="lblPrsAdi" layoutX="14.0" layoutY="189.0" text="Personel Adı" />
+      <Label fx:id="lblPrsSoyadi" layoutX="14.0" layoutY="229.0" text="Personel Soyadı" />
+      <Label fx:id="lblTel" layoutX="14.0" layoutY="269.0" text="Telefon" />
+      <Label fx:id="lblCep" layoutX="14.0" layoutY="309.0" text="Cep" />
+      <Label fx:id="lblMail" layoutX="14.0" layoutY="349.0" text="Mail" />
+      <Label fx:id="lblAdres" layoutX="14.0" layoutY="389.0" text="Adres" />
+      <TextArea fx:id="dznAdres" layoutX="135.0" layoutY="389.0" prefHeight="120.0" prefWidth="250.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <Button fx:id="kaydetBtn" layoutX="15.0" layoutY="536.0" mnemonicParsing="false" onAction="#dznKaydet" prefHeight="50.0" prefWidth="370.0" text="Kaydet" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+      <Label fx:id="lblKonumUyari2" layoutX="135.0" layoutY="48.0" text="1- Kasiyer     2-Satış Elemanı" textFill="RED" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <Label fx:id="lblKonumUyari1" layoutX="135.0" layoutY="31.0" text="Konum yalnızca konumun kodu olmalıdır." textFill="RED" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <Label fx:id="lblTelUyari" layoutX="135.0" layoutY="250.0" text="Lütfen geçerli bir telefon giriniz." textFill="RED" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <Label fx:id="lblCepUyari" layoutX="135.0" layoutY="289.0" text="Lütfen geçerli bir cep telefonu giriniz." textFill="RED" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+      <Label fx:id="lblMailUyari" layoutX="135.0" layoutY="330.0" text="Lütfen geçerli bir mail adresi giriniz." textFill="RED" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="15.0" />
+   </children>
+</AnchorPane>

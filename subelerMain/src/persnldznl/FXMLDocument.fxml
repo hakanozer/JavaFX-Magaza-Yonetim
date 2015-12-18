@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="persnldznl.FXMLDocumentController">
+    <children>
+         <ImageView fitHeight="600.0" fitWidth="800.0">
+            <image>
+                <Image url="@../img/mavi.jpg" />
+            </image>
+        </ImageView>  
+     <Button fx:id="prsDznlBtn" layoutX="14.0" layoutY="14.0" onAction="#DuzenleBtn" prefHeight="25.0" prefWidth="713.0" text="Personel Düzenle" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="15.0" />
+      <TableView fx:id="tviewGiris" layoutX="14.0" layoutY="47.0" prefHeight="545.0" prefWidth="770.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0">
+        <columns>
+          <TableColumn fx:id="prsID" prefWidth="50.0" text="ID" />
+          <TableColumn fx:id="prsKonum" prefWidth="50.0" text="Konum" />
+            <TableColumn fx:id="prsKulAdi" prefWidth="75.0" text="Kullanıcı Adı" />
+            <TableColumn fx:id="prsSifre" prefWidth="75.0" text="Şifre" />
+            <TableColumn fx:id="prsAdi" prefWidth="75.0" text="Adı" />
+            <TableColumn fx:id="prsSoyadi" prefWidth="75.0" text="Soyadı" />
+            <TableColumn fx:id="prsTel" prefWidth="75.0" text="Telefon" />
+            <TableColumn fx:id="prsCep" prefWidth="75.0" text="Cep" />
+            <TableColumn fx:id="prsMail" prefWidth="75.0" text="Mail" />
+            <TableColumn fx:id="prsAdres" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Adres" />
+        </columns>
+      </TableView>
+      <Button layoutX="734.0" layoutY="15.0" mnemonicParsing="false" onAction="#kapat" prefHeight="25.0" prefWidth="52.0" text="Kapat" />
+    </children>
+</AnchorPane>
