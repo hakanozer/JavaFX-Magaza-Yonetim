@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication7.FXMLDocumentController">
+   <children>
+       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="798.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+      <children>
+         <TableView fx:id="terzitable" layoutX="38.0" layoutY="267.0" onMouseClicked="#dataSelect" prefHeight="235.0" prefWidth="528.0">
+           <columns>
+             <TableColumn fx:id="mid" prefWidth="75.0" text="müdürID" />
+               <TableColumn fx:id="tadi" prefWidth="75.0" text="tadi" />
+               <TableColumn fx:id="tsoyadi" prefWidth="75.0" text="tsoyadi" />
+               <TableColumn fx:id="ttelefon" prefWidth="75.0" text="ttelefon" />
+               <TableColumn fx:id="tcep" prefWidth="75.0" text="tcep" />
+               <TableColumn fx:id="tadres" prefWidth="75.0" text="tadres" />
+               <TableColumn fx:id="ttarih" prefWidth="75.0" text="ttarih" />
+           </columns>
+         </TableView>
+         <Button layoutX="466.0" layoutY="37.0" mnemonicParsing="false" onAction="#kaydetButtonAction" prefHeight="25.0" prefWidth="100.0" text="ekle" />
+         <Button layoutX="466.0" layoutY="74.0" mnemonicParsing="false" onAction="#dataUpdate" prefHeight="25.0" prefWidth="100.0" text="düzenle" />
+         <Button fx:id="sil" layoutX="466.0" layoutY="112.0" mnemonicParsing="false" onAction="#silButtonAction" prefHeight="25.0" prefWidth="100.0" text="sil" />
+            <TextField fx:id="txtadi" layoutX="141.0" layoutY="14.0" prefHeight="25.0" prefWidth="149.0" />
+            <TextField fx:id="txtsoyadi" layoutX="141.0" layoutY="50.0" prefHeight="25.0" prefWidth="149.0" />
+            <TextField fx:id="txttelefon" layoutX="141.0" layoutY="87.0" />
+            <TextField fx:id="txtcep" layoutX="141.0" layoutY="120.0" />
+            <Accordion layoutX="21.0" layoutY="25.0" />
+            <Label layoutX="24.0" layoutY="18.0" prefHeight="17.0" prefWidth="77.0" text="Adi">
+               <textFill>
+                  <RadialGradient centerX="0.9333333333333333" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label layoutX="24.0" layoutY="54.0" prefHeight="17.0" prefWidth="77.0" text="Soyadi">
+               <textFill>
+                  <RadialGradient centerX="1.0" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="24.0" layoutY="91.0" prefHeight="17.0" prefWidth="70.0" text="Telefon">
+               <textFill>
+                  <RadialGradient centerX="1.0" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="24.0" layoutY="124.0" text="Cep">
+               <textFill>
+                  <RadialGradient centerX="1.0" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="24.0" layoutY="164.0" text="Adres">
+               <textFill>
+                  <RadialGradient centerX="1.0" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <TextArea fx:id="txtadres" layoutX="141.0" layoutY="153.0" prefHeight="67.0" prefWidth="149.0" />
+      </children>
+   </Pane>
+   </children>
+</AnchorPane>

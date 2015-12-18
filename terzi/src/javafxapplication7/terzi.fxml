@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="636.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="terzitable" layoutX="54.0" layoutY="39.0" prefHeight="235.0" prefWidth="528.0">
+        <columns>
+          <TableColumn fx:id="mid" prefWidth="75.0" text="müdürID" />
+            <TableColumn fx:id="tadi" prefWidth="75.0" text="tadi" />
+            <TableColumn fx:id="tsoyadi" prefWidth="75.0" text="tsoyadi" />
+            <TableColumn fx:id="ttelefon" prefWidth="75.0" text="ttelefon" />
+            <TableColumn fx:id="tcep" prefWidth="75.0" text="tcep" />
+            <TableColumn fx:id="tadres" prefWidth="75.0" text="tadres" />
+            <TableColumn fx:id="ttarih" prefWidth="75.0" text="ttarih" />
+        </columns>
+      </TableView>
+      <Button layoutX="179.0" layoutY="311.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="ekle" />
+      <Button layoutX="288.0" layoutY="311.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="düzenle" />
+      <Button layoutX="373.0" layoutY="311.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="sil" />
+   </children>
+</Pane>
