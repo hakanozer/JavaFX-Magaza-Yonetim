@@ -6,7 +6,6 @@ Bu proje JavaFX ve Hibernate yazılımlarını kullanarak bir mağazanın bütü
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/KasaKapatmaEkranı.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/MudurEkleDuzenle.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/PersonelBarkodAramaEkrani.png" width="200"/>
-<img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/PersonelDuzenleme.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/PersonelLogin.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/PersonelOdemeEkrani.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/PersonelSatisEkrani.png" width="200"/>
