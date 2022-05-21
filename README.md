@@ -1,6 +1,6 @@
-# Mağaza Yönetim Projesi
+# JavaFX Mağaza Yönetim Projesi
 Bu proje JavaFX ve Hibernate yazılımlarını kullanarak bir mağazanın bütün ihtiyaçlarını karşılayan bir otomasyon olmayı amaçlamaktadır.
-
+<p>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/SuperAdminEkrani.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/Bedenler.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/KasaKapatmaEkranı.png" width="200"/>
@@ -25,3 +25,4 @@ Bu proje JavaFX ve Hibernate yazılımlarını kullanarak bir mağazanın bütü
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/UrunSatisGrafigi.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/YoneticiGirisEkrani.png" width="200"/>
 <img src="https://github.com/hakanozer/magazaYonetim/blob/master/Proje%20G%C3%B6r%C3%BCnt%C3%BCleri/YoneticiLogin.png" width="200"/>
+</p>
